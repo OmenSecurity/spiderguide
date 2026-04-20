@@ -524,6 +524,68 @@
     body { background: white; }
     .family { break-inside: avoid; page-break-inside: avoid; }
   }
+
+  .plate {
+    margin: 18px 0 6px;
+    border: 1px solid var(--rule);
+    background: var(--paper-deep);
+    padding: 6px;
+    box-shadow: 0 2px 0 var(--paper-edge);
+  }
+  .plate img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+  }
+  .plate-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 6px;
+  }
+  a.sci-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--olive);
+  }
+  a.sci-link:hover {
+    border-bottom-color: var(--rust);
+    color: var(--rust);
+  }
+
+  /* Move parchment from the body onto the content card so it reads as a
+     physical page on a desk. Gives clear whitespace around the content and a
+     defined edge between. */
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+  }
+  .frame {
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(154,74,40,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(85,107,47,0.04) 0%, transparent 50%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence baseFrequency='0.8' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.12   0 0 0 0 0.10   0 0 0 0 0.07   0 0 0 0.05 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+    border: 1px solid var(--paper-edge);
+    box-shadow:
+      0 1px 0 var(--paper-edge),
+      0 2px 4px rgba(31,26,19,0.08),
+      0 20px 60px rgba(31,26,19,0.06);
+    margin: 24px auto;
+  }
+  @media (max-width: 720px) {
+    .frame {
+      margin: 0 auto;
+      border-left: none;
+      border-right: none;
+      box-shadow: none;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -534,11 +596,10 @@
        MASTHEAD
        ========================================================= -->
   <header class="masthead">
-    <div class="kicker">Phase One · California · Fifteen Families</div>
     <h1>A Field Guide <span class="amp">to the</span><br>Spiders of California</h1>
-    <h2>Eye patterns · Silhouettes · Diagnostics for the hand &amp; eye</h2>
+    <h2>Identification at a glance</h2>
     <div class="meta">
-      <span>Concentric plan · Vol. I</span>
+      <span>Spiders of the World</span>
       <span>Araneae · Order of the Web</span>
       <span>Compiled from iNaturalist, BugGuide, Essig Museum</span>
     </div>
@@ -548,8 +609,7 @@
        INTRODUCTION
        ========================================================= -->
   <section class="intro">
-    <p>This is a working reference, not a taxonomic treatise. Its single aim is to get your eye to family-level recognition in under two seconds — and to genus or species when diagnostic features are visible without a lens. California holds <em>more than a thousand species across fifty-four families</em>, but observation data collapses the everyday world to the fifteen families gathered here. Master these, and ninety-odd percent of what you encounter becomes legible.</p>
-    <p>Each entry follows the same template: eye arrangement, silhouette, hunting style, habitat, the local species that matter, and the family it's most often confused with. Read the eye diagrams carefully. For many groups — jumpers, wolves, recluses, lynxes, sow-bug killers — eye architecture alone is diagnostic.</p>
+    <p>California has over a thousand spider species across fifty-four families, but these fifteen account for roughly 90% of what you'll encounter. Eye arrangement settles most families on its own; silhouette, hunting style, habitat, and web architecture handle the rest. Only two groups — the widows and the recluses — have venom worth treating as a medical concern, and recluses are functionally absent from most of the state.</p>
   </section>
 
   <!-- =========================================================
@@ -870,7 +930,7 @@
         </div>
         <dl class="attrs">
           <div class="attr">
-            <dt>Size</dt><dd>4–15 mm body; some <em>Phidippus</em> to 22 mm</dd>
+            <dt>Size</dt><dd>4–15 mm body; some <a class="sci-link" href="https://www.inaturalist.org/taxa/53810" target="_blank" rel="noopener"><em>Phidippus</em></a> to 22 mm</dd>
           </div>
           <div class="attr">
             <dt>Hunting Style</dt><dd>Active diurnal hunter. No snare web. Drags a silk dragline while stalking.</dd>
@@ -885,15 +945,17 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Phidippus audax</em> <span>— Bold jumper, black with white spots, iridescent green chelicerae</span></li>
-            <li><em>Phidippus johnsoni</em> <span>— Red-backed, mimics velvet ant</span></li>
-            <li><em>Platycryptus californicus</em> <span>— Flat, bark-dwelling, chevron-backed</span></li>
-            <li><em>Salticus scenicus</em> <span>— Zebra jumper, walls and fences, synanthropic</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1362557" target="_blank" rel="noopener"><em>Phidippus audax</em></a> <span>— Bold jumper, black with white spots, iridescent green chelicerae</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1362558" target="_blank" rel="noopener"><em>Phidippus johnsoni</em></a> <span>— Red-backed, mimics velvet ant</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/228315" target="_blank" rel="noopener"><em>Platycryptus californicus</em></a> <span>— Flat, bark-dwelling, chevron-backed</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/68901" target="_blank" rel="noopener"><em>Salticus scenicus</em></a> <span>— Zebra jumper, walls and fences, synanthropic</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/49758-Salticidae" target="_blank" rel="noopener">iNaturalist · Salticidae</a> · <a href="https://bugguide.net/node/view/1979" target="_blank" rel="noopener">BugGuide</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/01_salticidae.png" alt="salticidae plate">
+          <figcaption class="plate-caption">Plate 01 — Salticidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/48139" target="_blank" rel="noopener">iNaturalist · Salticidae</a></div>
       </div>
     </article>
 
@@ -965,14 +1027,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Latrodectus hesperus</em> <span>— Western black widow, native, red hourglass, glossy black</span></li>
-            <li><em>Steatoda grossa</em> <span>— False widow, purple-brown, whitish markings, not medically significant</span></li>
-            <li><em>Parasteatoda tepidariorum</em> <span>— Common house spider, mottled brown, globose</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/47382" target="_blank" rel="noopener"><em>Latrodectus hesperus</em></a> <span>— Western black widow, native, red hourglass, glossy black</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/61997" target="_blank" rel="noopener"><em>Steatoda grossa</em></a> <span>— False widow, purple-brown, whitish markings, not medically significant</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/120583" target="_blank" rel="noopener"><em>Parasteatoda tepidariorum</em></a> <span>— Common house spider, mottled brown, globose</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/47854-Latrodectus-hesperus" target="_blank" rel="noopener">iNat · L. hesperus</a> · <a href="https://www.inaturalist.org/taxa/48505-Steatoda-grossa" target="_blank" rel="noopener">iNat · S. grossa</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/02_theridiidae.png" alt="theridiidae plate">
+          <figcaption class="plate-caption">Plate 02 — Theridiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47371" target="_blank" rel="noopener">iNaturalist · Theridiidae</a></div>
       </div>
     </article>
 
@@ -1039,14 +1103,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Araneus diadematus</em> <span>— Cross orb-weaver, white cross on abdomen, introduced but common</span></li>
-            <li><em>Neoscona oaxacensis</em> <span>— Western spotted orb-weaver, dominant in coastal gardens</span></li>
-            <li><em>Argiope aurantia</em> <span>— Yellow garden spider, bold yellow-black, builds stabilimentum (zigzag)</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/52628" target="_blank" rel="noopener"><em>Araneus diadematus</em></a> <span>— Cross orb-weaver, white cross on abdomen, introduced but common</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/123713" target="_blank" rel="noopener"><em>Neoscona oaxacensis</em></a> <span>— Western spotted orb-weaver, dominant in coastal gardens</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/67707" target="_blank" rel="noopener"><em>Argiope aurantia</em></a> <span>— Yellow garden spider, bold yellow-black, builds stabilimentum (zigzag)</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/49328-Araneidae" target="_blank" rel="noopener">iNaturalist · Araneidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/03_araneidae.png" alt="araneidae plate">
+          <figcaption class="plate-caption">Plate 03 — Araneidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47535" target="_blank" rel="noopener">iNaturalist · Araneidae</a></div>
       </div>
     </article>
 
@@ -1122,14 +1188,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Hogna carolinensis</em> (and relatives) <span>— Large, up to 30 mm, ground-runner</span></li>
-            <li><em>Pardosa spp.</em> <span>— Smaller thin-legged wolves, sunny open ground</span></li>
-            <li><em>Schizocosa mccooki</em> <span>— Common medium wolf, striped</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/122621" target="_blank" rel="noopener"><em>Hogna carolinensis</em></a> (and relatives) <span>— Large, up to 30 mm, ground-runner</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/47415" target="_blank" rel="noopener"><em>Pardosa spp.</em></a> <span>— Smaller thin-legged wolves, sunny open ground</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/230594" target="_blank" rel="noopener"><em>Schizocosa mccooki</em></a> <span>— Common medium wolf, striped</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/48884-Lycosidae" target="_blank" rel="noopener">iNaturalist · Lycosidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/04_lycosidae.png" alt="lycosidae plate">
+          <figcaption class="plate-caption">Plate 04 — Lycosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47416" target="_blank" rel="noopener">iNaturalist · Lycosidae</a></div>
       </div>
     </article>
 
@@ -1197,14 +1265,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Hololena nedra</em> <span>— Common Bay Area funnel weaver</span></li>
-            <li><em>Eratigena agrestis</em> <span>— "Hobo spider"; range contested, mostly PNW</span></li>
-            <li><em>Tegenaria domestica</em> <span>— Barn funnel weaver, synanthropic</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/211209" target="_blank" rel="noopener"><em>Hololena nedra</em></a> <span>— Common Bay Area funnel weaver</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/454859" target="_blank" rel="noopener"><em>Eratigena agrestis</em></a> <span>— "Hobo spider"; range contested, mostly PNW</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153507" target="_blank" rel="noopener"><em>Tegenaria domestica</em></a> <span>— Barn funnel weaver, synanthropic</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/52717-Agelenidae" target="_blank" rel="noopener">iNaturalist · Agelenidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/05_agelenidae.png" alt="agelenidae plate">
+          <figcaption class="plate-caption">Plate 05 — Agelenidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47345" target="_blank" rel="noopener">iNaturalist · Agelenidae</a></div>
       </div>
     </article>
 
@@ -1275,20 +1345,22 @@
             <dt>Habitat</dt><dd>Ceilings, cellars, garages, crawl spaces, vegetation in southern CA.</dd>
           </div>
           <div class="attr">
-            <dt>Body</dt><dd>Pale gray/tan. Abdomen elongate in <em>Pholcus</em>, globular in <em>Holocnemus</em>.</dd>
+            <dt>Body</dt><dd>Pale gray/tan. Abdomen elongate in <a class="sci-link" href="https://www.inaturalist.org/taxa/67329" target="_blank" rel="noopener"><em>Pholcus</em></a>, globular in <a class="sci-link" href="https://www.inaturalist.org/taxa/211211" target="_blank" rel="noopener"><em>Holocnemus</em></a>.</dd>
           </div>
         </dl>
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Pholcus phalangioides</em> <span>— Long-bodied cellar spider, cosmopolitan indoors</span></li>
-            <li><em>Holocnemus pluchei</em> <span>— Marbled cellar spider, huge Mediterranean invader, now everywhere in CA</span></li>
-            <li><em>Physocyclus globosus</em> <span>— Short-bodied, globular abdomen</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/67328" target="_blank" rel="noopener"><em>Pholcus phalangioides</em></a> <span>— Long-bodied cellar spider, cosmopolitan indoors</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/211210" target="_blank" rel="noopener"><em>Holocnemus pluchei</em></a> <span>— Marbled cellar spider, huge Mediterranean invader, now everywhere in CA</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/298638" target="_blank" rel="noopener"><em>Physocyclus globosus</em></a> <span>— Short-bodied, globular abdomen</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/52104-Pholcidae" target="_blank" rel="noopener">iNaturalist · Pholcidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/06_pholcidae.png" alt="pholcidae plate">
+          <figcaption class="plate-caption">Plate 06 — Pholcidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47823" target="_blank" rel="noopener">iNaturalist · Pholcidae</a></div>
       </div>
     </article>
 
@@ -1361,14 +1433,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Misumena vatia</em> <span>— Goldenrod crab spider, color-shifter, white to yellow</span></li>
-            <li><em>Misumenoides formosipes</em> <span>— White-banded, "smiling" face marking</span></li>
-            <li><em>Mecaphesa</em> spp. <span>— Smaller, hairy, common on native flora</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/55746" target="_blank" rel="noopener"><em>Misumena vatia</em></a> <span>— Goldenrod crab spider, color-shifter, white to yellow</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/62035" target="_blank" rel="noopener"><em>Misumenoides formosipes</em></a> <span>— White-banded, "smiling" face marking</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/129662" target="_blank" rel="noopener"><em>Mecaphesa</em></a> spp. <span>— Smaller, hairy, common on native flora</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/49168-Thomisidae" target="_blank" rel="noopener">iNaturalist · Thomisidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/07_thomisidae.png" alt="thomisidae plate">
+          <figcaption class="plate-caption">Plate 07 — Thomisidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47866" target="_blank" rel="noopener">iNaturalist · Thomisidae</a></div>
       </div>
     </article>
 
@@ -1414,7 +1488,7 @@
         <p class="common">Tarantulas</p>
         <div class="tell">
           <strong>Quick ID Tell</strong>
-          Very large, hairy, with fangs that strike downward (not sideways). Walks with a distinctive "ambling" gait. In CA, almost always <em>Aphonopelma</em>. Males wander in late summer / early fall looking for mates.
+          Very large, hairy, with fangs that strike downward (not sideways). Walks with a distinctive "ambling" gait. In CA, almost always <a class="sci-link" href="https://www.inaturalist.org/taxa/47423" target="_blank" rel="noopener"><em>Aphonopelma</em></a>. Males wander in late summer / early fall looking for mates.
         </div>
         <dl class="attrs">
           <div class="attr">
@@ -1433,14 +1507,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Aphonopelma iodius</em> <span>— Desert tarantula, widespread</span></li>
-            <li><em>Aphonopelma eutylenum</em> <span>— California ebony, coast ranges</span></li>
-            <li><em>Aphonopelma johnnycashi</em> <span>— Named for Johnny Cash, Central Valley</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/180759" target="_blank" rel="noopener"><em>Aphonopelma iodius</em></a> <span>— Desert tarantula, widespread</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/55421" target="_blank" rel="noopener"><em>Aphonopelma eutylenum</em></a> <span>— California ebony, coast ranges</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/501065" target="_blank" rel="noopener"><em>Aphonopelma johnnycashi</em></a> <span>— Named for Johnny Cash, Central Valley</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/47918-Aphonopelma" target="_blank" rel="noopener">iNaturalist · Aphonopelma</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/08_theraphosidae.png" alt="theraphosidae plate">
+          <figcaption class="plate-caption">Plate 08 — Theraphosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47424" target="_blank" rel="noopener">iNaturalist · Theraphosidae</a></div>
       </div>
     </article>
 
@@ -1509,13 +1585,15 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Calisoga longitarsis</em> <span>— Most frequently encountered Bay Area species</span></li>
-            <li><em>Calisoga theveneti</em> <span>— Overlapping range, slightly different genital morphology</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/50989" target="_blank" rel="noopener"><em>Calisoga longitarsis</em></a> <span>— Most frequently encountered Bay Area species</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/844949" target="_blank" rel="noopener"><em>Calisoga theveneti</em></a> <span>— Overlapping range, slightly different genital morphology</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/201432-Calisoga" target="_blank" rel="noopener">iNaturalist · Calisoga</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/09_nemesiidae.png" alt="nemesiidae plate">
+          <figcaption class="plate-caption">Plate 09 — Nemesiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47369" target="_blank" rel="noopener">iNaturalist · Nemesiidae</a></div>
       </div>
     </article>
 
@@ -1596,12 +1674,14 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Zoropsis spinimana</em> <span>— Introduced from Europe; now established throughout SF Bay Area</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/127112" target="_blank" rel="noopener"><em>Zoropsis spinimana</em></a> <span>— Introduced from Europe; now established throughout SF Bay Area</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/61588-Zoropsis-spinimana" target="_blank" rel="noopener">iNaturalist · Z. spinimana</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/10_zoropsidae.png" alt="zoropsidae plate">
+          <figcaption class="plate-caption">Plate 10 — Zoropsidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/127113" target="_blank" rel="noopener">iNaturalist · Zoropsidae</a></div>
       </div>
     </article>
 
@@ -1676,7 +1756,7 @@
             <dt>Hunting Style</dt><dd>Active diurnal hunter on plants; leaps on prey. No snare web.</dd>
           </div>
           <div class="attr">
-            <dt>Habitat</dt><dd>Foliage, chaparral, gardens. Often bright green (<em>Peucetia</em>) on leaves.</dd>
+            <dt>Habitat</dt><dd>Foliage, chaparral, gardens. Often bright green (<a class="sci-link" href="https://www.inaturalist.org/taxa/84120" target="_blank" rel="noopener"><em>Peucetia</em></a>) on leaves.</dd>
           </div>
           <div class="attr">
             <dt>Body</dt><dd>Abdomen tapered to a point; legs with prominent black spines set at angles.</dd>
@@ -1685,13 +1765,15 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Peucetia viridans</em> <span>— Green lynx, striking translucent green with red eyespots</span></li>
-            <li><em>Oxyopes scalaris</em> <span>— Western lynx, smaller, brown and cream striping</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/126777" target="_blank" rel="noopener"><em>Peucetia viridans</em></a> <span>— Green lynx, striking translucent green with red eyespots</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/209807" target="_blank" rel="noopener"><em>Oxyopes scalaris</em></a> <span>— Western lynx, smaller, brown and cream striping</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/47922-Oxyopidae" target="_blank" rel="noopener">iNaturalist · Oxyopidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/11_oxyopidae.png" alt="oxyopidae plate">
+          <figcaption class="plate-caption">Plate 11 — Oxyopidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/83843" target="_blank" rel="noopener">iNaturalist · Oxyopidae</a></div>
       </div>
     </article>
 
@@ -1779,12 +1861,14 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Dysdera crocata</em> <span>— Only species typically seen; introduced, cosmopolitan</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1454862" target="_blank" rel="noopener"><em>Dysdera crocata</em></a> <span>— Only species typically seen; introduced, cosmopolitan</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/49832-Dysdera-crocata" target="_blank" rel="noopener">iNaturalist · D. crocata</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/12_dysderidae.png" alt="dysderidae plate">
+          <figcaption class="plate-caption">Plate 12 — Dysderidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/69200" target="_blank" rel="noopener">iNaturalist · Dysderidae</a></div>
       </div>
     </article>
 
@@ -1856,14 +1940,16 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Herpyllus propinquus</em> <span>— Western parson spider, dark with pale dorsal stripe</span></li>
-            <li><em>Drassyllus</em> spp. <span>— Small, black, leaf-litter dwellers</span></li>
-            <li><em>Zelotes</em> spp. <span>— Glossy black, very fast</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/221218" target="_blank" rel="noopener"><em>Herpyllus propinquus</em></a> <span>— Western parson spider, dark with pale dorsal stripe</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153611" target="_blank" rel="noopener"><em>Drassyllus</em></a> spp. <span>— Small, black, leaf-litter dwellers</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153636" target="_blank" rel="noopener"><em>Zelotes</em></a> spp. <span>— Glossy black, very fast</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/47934-Gnaphosidae" target="_blank" rel="noopener">iNaturalist · Gnaphosidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/13_gnaphosidae.png" alt="gnaphosidae plate">
+          <figcaption class="plate-caption">Plate 13 — Gnaphosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/50168" target="_blank" rel="noopener">iNaturalist · Gnaphosidae</a></div>
       </div>
     </article>
 
@@ -1949,14 +2035,16 @@
         <div class="species-list">
           <h5>Top California Genera</h5>
           <ul>
-            <li><em>Neriene litigiosa</em> <span>— Sierra Dome, huge conspicuous dome webs in shrubs</span></li>
-            <li><em>Frontinella</em> <span>— Bowl and doily, two-tier web architecture</span></li>
-            <li><em>Erigone</em> and relatives <span>— Tiny, often ballooning, ubiquitous</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/209814" target="_blank" rel="noopener"><em>Neriene litigiosa</em></a> <span>— Sierra Dome, huge conspicuous dome webs in shrubs</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/143214" target="_blank" rel="noopener"><em>Frontinella</em></a> <span>— Bowl and doily, two-tier web architecture</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153672" target="_blank" rel="noopener"><em>Erigone</em></a> and relatives <span>— Tiny, often ballooning, ubiquitous</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/51814-Linyphiidae" target="_blank" rel="noopener">iNaturalist · Linyphiidae</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/14_linyphiidae.png" alt="linyphiidae plate">
+          <figcaption class="plate-caption">Plate 14 — Linyphiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/67599" target="_blank" rel="noopener">iNaturalist · Linyphiidae</a></div>
       </div>
     </article>
 
@@ -2037,13 +2125,15 @@
         <div class="species-list">
           <h5>Top California Species</h5>
           <ul>
-            <li><em>Loxosceles deserta</em> <span>— Desert recluse, Mojave/Colorado Desert only</span></li>
-            <li><em>Loxosceles laeta</em> <span>— Chilean recluse, localized LA-area populations, medically serious</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/50182" target="_blank" rel="noopener"><em>Loxosceles deserta</em></a> <span>— Desert recluse, Mojave/Colorado Desert only</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/224147" target="_blank" rel="noopener"><em>Loxosceles laeta</em></a> <span>— Chilean recluse, localized LA-area populations, medically serious</span></li>
           </ul>
         </div>
-        <div class="photoref">
-          Reference photos: <a href="https://www.inaturalist.org/taxa/47938-Loxosceles" target="_blank" rel="noopener">iNaturalist · Loxosceles</a>
-        </div>
+        <figure class="plate">
+          <img src="plates/15_sicariidae.png" alt="sicariidae plate">
+          <figcaption class="plate-caption">Plate 15 — Sicariidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/48140" target="_blank" rel="noopener">iNaturalist · Sicariidae</a></div>
       </div>
     </article>
 
@@ -2101,7 +2191,7 @@
 
         <tr>
           <td>Gnaphosidae vs. Clubionidae / Miturgidae<br>(ground spiders vs. sac spiders)</td>
-          <td>Both elongate, hunting (no web), found in similar places. Sac spiders (<em>Cheiracanthium</em>) are common house spiders.</td>
+          <td>Both elongate, hunting (no web), found in similar places. Sac spiders (<a class="sci-link" href="https://www.inaturalist.org/taxa/61868" target="_blank" rel="noopener"><em>Cheiracanthium</em></a>) are common house spiders.</td>
           <td class="verdict">Spinnerets and PME. Gnaphosidae have cylindrical, widely spaced spinnerets protruding noticeably; their PME are often flattened or silvery. Sac spiders have short conical spinnerets and uniformly round dark eyes.</td>
         </tr>
 
