@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Field Guide to the Spiders of California — Phase 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #f2ebdc;
+    --paper-deep:   #e8dfc9;
+    --paper-edge:   #d9cdb0;
+    --ink:          #1f1a13;
+    --ink-soft:     #3c342a;
+    --ink-faint:    #6a5f50;
+    --rust:         #9a4a28;
+    --rust-deep:    #7a3619;
+    --olive:        #556b2f;
+    --olive-deep:   #3e5022;
+    --gold:         #b8893a;
+    --rule:         #c8b992;
+    --card:         #ede4cc;
+    --warn:         #8b2e1f;
+
+    --display: "Fraunces", "Times New Roman", serif;
+    --body:    "Spectral", Georgia, serif;
+    --mono:    "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 17px;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(154,74,40,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(85,107,47,0.04) 0%, transparent 50%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence baseFrequency='0.8' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.12   0 0 0 0 0.10   0 0 0 0 0.07   0 0 0 0.05 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+  }
+
+  /* ---------- Layout ---------- */
+  .frame {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    border-top: 3px double var(--ink);
+    border-bottom: 3px double var(--ink);
+    padding: 36px 0 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .masthead .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .masthead h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-style: italic;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.0;
+    margin: 0 0 10px;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  .masthead h1 .amp {
+    font-weight: 300;
+    color: var(--rust);
+    font-style: italic;
+  }
+  .masthead h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(18px, 2.4vw, 24px);
+    text-align: center;
+    margin: 0 0 20px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .masthead .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Section headings ---------- */
+  .section-head {
+    margin: 72px 0 28px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .section-head h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(24px, 3.2vw, 34px);
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .section-head .sect-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--rust);
+  }
+
+  /* ---------- Intro / reading prose ---------- */
+  .intro {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    column-count: 1;
+    font-size: 17.5px;
+  }
+  .intro p { margin: 0 0 14px; }
+  .intro p:first-child::first-line {
+    font-family: var(--display);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .intro em { color: var(--rust-deep); }
+
+  /* ---------- Eye arrangement key ---------- */
+  .eye-key {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+    border-radius: 2px;
+    box-shadow: 0 2px 0 var(--paper-edge), 0 8px 24px -12px rgba(0,0,0,0.15);
+  }
+  .eye-key .lead {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    text-align: center;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .eye-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px 16px;
+  }
+  .eye-cell {
+    text-align: center;
+    padding: 10px 6px;
+    border: 1px dashed transparent;
+    transition: all .2s ease;
+  }
+  .eye-cell:hover {
+    border-color: var(--rust);
+    background: rgba(154,74,40,0.04);
+  }
+  .eye-photo {
+    display: block;
+    width: 140px; height: 140px;
+    margin: 0 auto 6px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--paper-deep);
+  }
+  .eye-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .25s ease;
+  }
+  .eye-photo:hover img { transform: scale(1.06); }
+  .eye-cell svg {
+    display: block;
+    margin: 0 auto 8px;
+    background: var(--paper);
+    border-radius: 50%;
+    padding: 6px;
+  }
+  .eye-cell .credit {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-top: 6px;
+    opacity: 0.85;
+    line-height: 1.3;
+  }
+  .eye-cell .credit a { color: var(--ink-faint); text-decoration: underline dotted; }
+  .eye-cell .credit a:hover { color: var(--rust); }
+  .eye-cell .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .eye-cell .sub {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  /* ---------- Size strip ---------- */
+  .size-strip {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 24px 16px 16px;
+    position: relative;
+    overflow-x: auto;
+  }
+  .size-strip .ruler-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+    padding: 0 12px;
+  }
+  .size-strip svg { display: block; min-width: 900px; width: 100%; }
+
+  /* ---------- Family cards ---------- */
+  .family-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 10px;
+  }
+
+  .family {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    padding: 28px 30px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    position: relative;
+    box-shadow: 0 2px 0 var(--paper-edge), 0 10px 28px -16px rgba(0,0,0,0.18);
+    border-radius: 2px;
+  }
+  .family::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--ink);
+  }
+  .family.tier-1::before { background: var(--rust); }
+  .family.medical::before {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--warn) 0, var(--warn) 8px,
+      var(--ink) 8px, var(--ink) 16px
+    );
+  }
+
+  .family-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    border-right: 1px dashed var(--rule);
+    padding-right: 24px;
+  }
+  .family-left .number {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--rust);
+  }
+  .family-left .eye-drawing {
+    background: var(--paper);
+    border-radius: 50%;
+    padding: 8px;
+    border: 1px solid var(--rule);
+  }
+  .eye-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.4;
+  }
+  .silhouette {
+    margin-top: 4px;
+  }
+  .silhouette svg { display: block; }
+  .silhouette-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  .family-right h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-variation-settings: "opsz" 144;
+    font-style: italic;
+    font-size: 28px;
+    margin: 0 0 2px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .family-right .common {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tell {
+    background: var(--paper);
+    border-left: 3px solid var(--rust);
+    padding: 12px 16px;
+    margin: 0 0 18px;
+    font-style: italic;
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+  .tell strong {
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .attrs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px 24px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin-top: 6px;
+  }
+  .attr dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 3px;
+  }
+  .attr dd {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .attr dd em { font-style: italic; }
+
+  .species-list {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+  .species-list h5 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 8px;
+  }
+  .species-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 4px 16px;
+  }
+  .species-list li {
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .species-list li em {
+    color: var(--ink);
+  }
+  .species-list li span {
+    color: var(--ink-faint);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .photoref {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dotted var(--rule);
+  }
+  .photoref a {
+    color: var(--olive-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--olive);
+  }
+  .photoref a:hover { color: var(--rust); border-color: var(--rust); }
+
+  .medical-flag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--warn);
+    color: var(--paper);
+    padding: 3px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
+
+  /* ---------- Confusion matrix ---------- */
+  .confusion-table {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 24px 8px 8px;
+    overflow-x: auto;
+  }
+  .confusion-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+  }
+  .confusion-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--rust);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--ink);
+    vertical-align: bottom;
+  }
+  .confusion-table td {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .confusion-table tr:last-child td { border-bottom: none; }
+  .confusion-table td:first-child {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust-deep);
+    width: 28%;
+  }
+  .confusion-table td.verdict {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--olive-deep);
+    font-weight: 500;
+    width: 28%;
+  }
+
+  /* ---------- Footer / next steps ---------- */
+  .closing {
+    margin-top: 70px;
+    padding: 36px 0;
+    border-top: 3px double var(--ink);
+    text-align: center;
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .closing p { max-width: 620px; margin: 0 auto 16px; }
+  .closing .colophon {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-style: normal;
+    margin-top: 30px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .frame { padding: 24px 16px 60px; }
+    .family {
+      grid-template-columns: 1fr;
+      padding: 22px 20px;
+    }
+    .family-left {
+      border-right: none;
+      border-bottom: 1px dashed var(--rule);
+      padding: 0 0 18px;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .family-right h4 { font-size: 24px; }
+    .attrs { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body { background: white; }
+    .family { break-inside: avoid; page-break-inside: avoid; }
+  }
+
+  .plate {
+    margin: 18px 0 6px;
+    border: 1px solid var(--rule);
+    background: var(--paper-deep);
+    padding: 6px;
+    box-shadow: 0 2px 0 var(--paper-edge);
+  }
+  .plate img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+  }
+  .plate-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 6px;
+  }
+  a.sci-link, a.support-link {
+    color: var(--olive-deep);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--olive);
+    font-weight: 500;
+  }
+  a.sci-link:hover, a.support-link:hover {
+    color: var(--rust);
+    border-bottom-color: var(--rust);
+    background: rgba(47,90,102,0.06);
+  }
+
+  /* Larger eye-pattern diagrams (4:3), centered rows (so the bottom 3 of 7
+     cells sit centered rather than left-aligned). */
+  .eye-grid {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 22px !important;
+  }
+  .eye-cell {
+    flex: 0 0 200px;
+  }
+  .eye-cell svg {
+    width: 160px !important;
+    height: 120px !important;
+    border-radius: 22px;
+  }
+
+  /* Size ladder — one shared SVG of all 5 foods at true relative scale on a
+     common baseline, plus 5 columns of tier info below. */
+  .size-ladder-wrap {
+    margin: 20px 0;
+  }
+  .size-ladder-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    margin-bottom: 6px;
+  }
+  .size-ladder {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  .rung {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 6px;
+  }
+  .rung-tier {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .rung-range {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 3px 0 6px;
+  }
+  .rung-food {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .rung-fams {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    width: 100%;
+  }
+  .rung-fams li {
+    padding: 2px 0;
+    font-family: var(--body);
+    color: var(--ink);
+  }
+  /* Medium has 8 families — flow its list in 2 columns so the row stays even */
+  .rung.rung-wide .rung-fams {
+    columns: 2;
+    column-gap: 14px;
+  }
+  .rung.rung-wide .rung-fams li {
+    break-inside: avoid;
+  }
+  @media (max-width: 900px) {
+    .size-ladder { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .rung.rung-wide .rung-fams { columns: 1; }
+  }
+
+  /* Bigger labels for the Getting Help With ID items (WHERE TO POST, etc.) */
+  .help-label {
+    font-family: var(--mono);
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    color: var(--ink);
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  /* Main lead intro: wider than before (not cramped center column) but still
+     comfortable line length. Drop cap + small-caps opener applied only here,
+     not to later .intro blocks (Field Technique, Getting Help With ID). */
+  .intro {
+    max-width: 860px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+    font-size: 17.5px;
+    line-height: 1.7;
+  }
+  .intro p { margin: 0 0 18px; }
+  .intro.lead p { text-align: justify; hyphens: auto; }
+  .intro.lead p + p { text-indent: 1.6em; margin-top: 0; }
+  /* Drop cap only on the very first letter of the lead intro. */
+  .intro.lead p:first-child::first-letter {
+    font-family: var(--display);
+    font-weight: 500;
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.9;
+    padding: 6px 10px 0 0;
+    color: var(--ink);
+  }
+  /* Cancel the original ::first-line all-caps rule for the lead intro. */
+  .intro.lead p:first-child::first-line {
+    font-family: var(--body) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    font-size: inherit !important;
+  }
+  /* Small-caps opener that ends precisely at the span boundary (the comma). */
+  .intro.lead .lede {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 14.5px;
+  }
+  /* Neutralize the global .intro p:first-child::first-line rule for non-lead
+     .intro sections (Field Technique, Getting Help) so label-wrapped first
+     lines don't pick up small-caps treatment. */
+  .intro:not(.lead) p:first-child::first-line {
+    font-family: var(--body) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    font-size: inherit !important;
+  }
+
+  /* Protanopia-friendly palette override: swap red-green axis for amber-teal */
+  :root {
+    --rust:         #8c6a1c;
+    --rust-deep:    #5e4711;
+    --olive:        #2f5a66;
+    --olive-deep:   #1f4652;
+    --warn:         #1f3a5f;
+  }
+
+  /* Move parchment from the body onto the content card so it reads as a
+     physical page on a desk. Gives clear whitespace around the content and a
+     defined edge between. */
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+  }
+  .frame {
+    position: relative;
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(154,74,40,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(85,107,47,0.04) 0%, transparent 50%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence baseFrequency='0.8' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.12   0 0 0 0 0.10   0 0 0 0 0.07   0 0 0 0.05 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+    /* Classic bookplate double-line border: dark outer, parchment gap, thin rust inner */
+    border: 1px solid var(--ink);
+    box-shadow:
+      inset 0 0 0 10px var(--paper),
+      inset 0 0 0 11px var(--rust),
+      inset 0 0 0 12px var(--paper),
+      0 4px 10px rgba(31,26,19,0.12),
+      0 28px 80px rgba(31,26,19,0.10);
+    margin: 32px auto;
+    padding: 54px 44px 90px;
+  }
+  /* Subtle vignette that darkens just the edges of the paper */
+  .frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center,
+      transparent 55%, rgba(31,26,19,0.05) 100%);
+  }
+  /* Tiny Art Nouveau-style corner flourishes */
+  .frame::after {
+    content: "❦";
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    font-size: 18px;
+    color: var(--rust);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  @media (max-width: 720px) {
+    .frame {
+      margin: 0 auto;
+      border-left: none;
+      border-right: none;
+      box-shadow:
+        inset 0 0 0 6px var(--paper),
+        inset 0 0 0 7px var(--rust);
+      padding: 36px 20px 60px;
+    }
+    .frame::after { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <!-- =========================================================
+       MASTHEAD
+       ========================================================= -->
+  <header class="masthead">
+    <h1>A Field Guide <span class="amp">to the</span><br>Spiders of California</h1>
+    <h2>Identification at a glance</h2>
+    <div class="meta">
+      <span>Spiders of the World &nbsp;|&nbsp; Vol. I</span>
+      <span>Araneae · Order of the Web</span>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       INTRODUCTION
+       ========================================================= -->
+  <section class="intro lead">
+    <p><span class="lede">California has <a class="support-link" href="https://essig.berkeley.edu/" target="_blank" rel="noopener">over a thousand spider species</a> across fifty-four families,</span> but the fifteen in this guide account for roughly 90% of what you'll encounter. Eye arrangement settles most families on its own; silhouette, hunting style, habitat, and web architecture handle the rest. Only two groups — the widows and the recluses — have <a class="support-link" href="https://www.poison.org/articles/black-widow-spiders" target="_blank" rel="noopener">venom worth treating</a> as a medical concern, and recluses are functionally absent from most of the state.</p><p>Look by time of day. Jumpers, lynxes, crabs, and wolves hunt in daylight and are the easiest to watch. Widows, cellar spiders, funnel weavers, and most web-builders retreat by day and emerge at dusk — a flashlight after dark often reveals more than an afternoon walk. Season matters, too: <a class="support-link" href="https://www.parks.ca.gov/?page_id=517" target="_blank" rel="noopener">male tarantulas wander</a> in late summer, orb-weavers peak in autumn, and mature female widows are most visible from late spring on.</p>
+  </section>
+
+  <!-- =========================================================
+       EYE KEY
+       ========================================================= -->
+  <div class="section-head">
+    <h3>Eye-Arrangement Key</h3>
+    <span class="sect-num">§ Primary Diagnostic</span>
+  </div>
+
+  <div class="eye-key">
+    <p class="lead">Spider eyes are arranged in family-specific geometries. View from directly in front. Count the rows, note relative sizes, look for tight clusters or pairs.</p>
+
+    <div class="eye-grid">
+
+      <!-- Salticidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/59225791" target="_blank" rel="noopener">
+          <img src="plates/eyes/salticidae.jpg" alt="Jumping spider face (Phidippus apacheanus) showing two large forward-facing anterior median eyes flanked by smaller anterior lateral eyes"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <rect x="10" y="30" width="80" height="44" rx="16" ry="16" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- Front-row eyes: 2 huge AMEs + 2 smaller ALEs flanking -->
+          <circle cx="22" cy="38" r="6" fill="#1f1a13"/><circle cx="20.2" cy="35.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="40" cy="38" r="14" fill="#1f1a13"/><circle cx="35.8" cy="33.1" r="3.92" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="60" cy="38" r="14" fill="#1f1a13"/><circle cx="55.8" cy="33.1" r="3.92" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="78" cy="38" r="6" fill="#1f1a13"/><circle cx="76.2" cy="35.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <!-- PLEs on top of head — barely peek over the upper edge in front view -->
+          <circle cx="30" cy="30" r="2.5" fill="#1f1a13"/>
+          <circle cx="70" cy="30" r="2.5" fill="#1f1a13"/>
+          <!-- Chelicerae + fangs (labidognath) -->
+          <ellipse cx="44" cy="64" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56" cy="64" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <path d="M 44 71 Q 47 74.5 50 73" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M 56 71 Q 53 74.5 50 73" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="label">two huge forward eyes</div>
+        <div class="sub">Salticidae · jumpers</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/scottward" target="_blank" rel="noopener">scottward</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a></div>
+      </div>
+
+      <!-- Lycosidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/279707235" target="_blank" rel="noopener">
+          <img src="plates/eyes/lycosidae.jpg" alt="Wolf spider face (Trochosa) showing two huge forward posterior median eyes above a row of four small anterior eyes, with smaller posterior lateral eyes on top of the head"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <ellipse cx="50" cy="50" rx="30" ry="28" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- Top row: PLEs (posterior lateral, on top of head) -->
+          <circle cx="28" cy="22" r="5" fill="#1f1a13"/><circle cx="26.5" cy="20.25" r="1.4" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="72" cy="22" r="5" fill="#1f1a13"/><circle cx="70.5" cy="20.25" r="1.4" fill="#f2ebdc" opacity="0.8"/>
+          <!-- Middle row: PMEs (posterior median — the two huge ones) -->
+          <circle cx="38" cy="40" r="9" fill="#1f1a13"/><circle cx="35.3" cy="36.85" r="2.52" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="62" cy="40" r="9" fill="#1f1a13"/><circle cx="59.3" cy="36.85" r="2.52" fill="#f2ebdc" opacity="0.8"/>
+          <!-- Bottom row: 4 small anterior eyes, closest to mouth -->
+          <circle cx="32" cy="58" r="3" fill="#1f1a13"/>
+          <circle cx="44" cy="58" r="3" fill="#1f1a13"/>
+          <circle cx="56" cy="58" r="3" fill="#1f1a13"/>
+          <circle cx="68" cy="58" r="3" fill="#1f1a13"/>
+          <!-- Chelicerae + fangs (labidognath) -->
+          <ellipse cx="44" cy="70" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56" cy="70" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <path d="M 44 77 Q 47 80 50 78.5" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M 56 77 Q 53 80 50 78.5" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="label">two huge middle eyes</div>
+        <div class="sub">Lycosidae · wolves</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/macrotim" target="_blank" rel="noopener">macrotim</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a></div>
+      </div>
+
+      <!-- Theraphosidae / Nemesiidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/178244392" target="_blank" rel="noopener">
+          <img src="plates/eyes/mygalomorphs.jpg" alt="Mygalomorph face (Promyrmekiaphila clathrata) showing eight tiny eyes tightly clustered on a raised ocular tubercle on top of the head"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <!-- Tight cluster on bump -->
+          <ellipse cx="50" cy="44" rx="16" ry="11" fill="none" stroke="#6a5f50" stroke-width="0.6" stroke-dasharray="2,2"/>
+          <circle cx="44" cy="40" r="2.5" fill="#1f1a13"/>
+          <circle cx="52" cy="39" r="3" fill="#1f1a13"/>
+          <circle cx="58" cy="41" r="2.5" fill="#1f1a13"/>
+          <circle cx="42" cy="46" r="2.2" fill="#1f1a13"/>
+          <circle cx="50" cy="47" r="2" fill="#1f1a13"/>
+          <circle cx="58" cy="47" r="2.2" fill="#1f1a13"/>
+          <circle cx="46" cy="50" r="2" fill="#1f1a13"/>
+          <circle cx="54" cy="50" r="2" fill="#1f1a13"/>
+          <!-- Chelicerae + fangs (orthognath — parallel, strike-down) -->
+          <ellipse cx="43.5" cy="62" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56.5" cy="62" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <line x1="43.5" y1="69" x2="43.5" y2="76" stroke="#1f1a13" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="56.5" y1="69" x2="56.5" y2="76" stroke="#1f1a13" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="label">tight cluster on a bump</div>
+        <div class="sub">Theraphosidae / Nemesiidae · tarantulas, trapdoors</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/dloarie" target="_blank" rel="noopener">dloarie</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a></div>
+      </div>
+
+      <!-- Oxyopidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/140945671" target="_blank" rel="noopener">
+          <img src="plates/eyes/oxyopidae.jpg" alt="Lynx spider face (Oxyopes gracilipes) showing six large eyes in a hexagonal ring on the front of the head, with two tiny anterior median eyes below"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <ellipse cx="50" cy="42" rx="24" ry="28" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- Hexagon of 6 -->
+          <circle cx="50" cy="22" r="4" fill="#1f1a13"/><circle cx="48.8" cy="20.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="34" cy="32" r="4" fill="#1f1a13"/><circle cx="32.8" cy="30.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="66" cy="32" r="4" fill="#1f1a13"/><circle cx="64.8" cy="30.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="34" cy="50" r="4" fill="#1f1a13"/><circle cx="32.8" cy="48.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="66" cy="50" r="4" fill="#1f1a13"/><circle cx="64.8" cy="48.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="50" cy="60" r="4" fill="#1f1a13"/><circle cx="48.8" cy="58.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <!-- 2 small below -->
+          <circle cx="44" cy="70" r="2" fill="#1f1a13"/>
+          <circle cx="56" cy="70" r="2" fill="#1f1a13"/>
+          <!-- Hex guide -->
+          <polygon points="50,22 34,32 34,50 50,60 66,50 66,32" fill="none" stroke="#556b2f" stroke-width="0.6" opacity="0.5"/>
+          <!-- Chelicerae + fangs (labidognath) -->
+          <ellipse cx="44" cy="71" rx="3" ry="6" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56" cy="71" rx="3" ry="6" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <path d="M 44 77 Q 47 79.5 50 78.5" fill="none" stroke="#1f1a13" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M 56 77 Q 53 79.5 50 78.5" fill="none" stroke="#1f1a13" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="label">hexagonal ring</div>
+        <div class="sub">Oxyopidae · lynx</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/flossiepip" target="_blank" rel="noopener">flossiepip</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a></div>
+      </div>
+
+      <!-- Dysderidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/46457616" target="_blank" rel="noopener">
+          <img src="plates/eyes/dysderidae.jpg" alt="Sow-bug killer face (Dysdera crocata) showing six small eyes clustered in a tight oval and oversized forward-projecting chelicerae with long fangs"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <ellipse cx="50" cy="44" rx="26" ry="22" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- 6 eyes tight oval -->
+          <ellipse cx="50" cy="40" rx="18" ry="10" fill="none" stroke="#6a5f50" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <circle cx="50" cy="32" r="3" fill="#1f1a13"/>
+          <circle cx="36" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="64" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="50" cy="48" r="3" fill="#1f1a13"/>
+          <circle cx="40" cy="46" r="3" fill="#1f1a13"/>
+          <circle cx="60" cy="46" r="3" fill="#1f1a13"/>
+          <!-- Chelicerae + fangs (OVERSIZED — diagnostic for Dysdera) -->
+          <ellipse cx="42" cy="63" rx="5" ry="10" fill="#3c342a" stroke="#1f1a13" stroke-width="0.6"/>
+          <ellipse cx="58" cy="63" rx="5" ry="10" fill="#3c342a" stroke="#1f1a13" stroke-width="0.6"/>
+          <path d="M 42 73 Q 46 77 50 75" fill="none" stroke="#1f1a13" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M 58 73 Q 54 77 50 75" fill="none" stroke="#1f1a13" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="label">six in a tight oval</div>
+        <div class="sub">Dysderidae · sow-bug killer</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/turnfear2fascination" target="_blank" rel="noopener">turnfear2fascination</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a></div>
+      </div>
+
+      <!-- Sicariidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/193210944" target="_blank" rel="noopener">
+          <img src="plates/eyes/sicariidae.jpg" alt="Recluse spider face (Loxosceles) showing six eyes arranged in three small pairs (diads) and the diagnostic dark violin-shaped marking on the cephalothorax"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <ellipse cx="50" cy="42" rx="32" ry="22" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- 3 pairs (diads) -->
+          <circle cx="50" cy="32" r="3.5" fill="#1f1a13"/>
+          <circle cx="58" cy="32" r="3.5" fill="#1f1a13"/>
+          <circle cx="32" cy="46" r="3.5" fill="#1f1a13"/>
+          <circle cx="40" cy="46" r="3.5" fill="#1f1a13"/>
+          <circle cx="60" cy="46" r="3.5" fill="#1f1a13"/>
+          <circle cx="68" cy="46" r="3.5" fill="#1f1a13"/>
+          <!-- connectors -->
+          <line x1="50" y1="32" x2="58" y2="32" stroke="#9a4a28" stroke-width="0.8" opacity="0.5"/>
+          <line x1="32" y1="46" x2="40" y2="46" stroke="#9a4a28" stroke-width="0.8" opacity="0.5"/>
+          <line x1="60" y1="46" x2="68" y2="46" stroke="#9a4a28" stroke-width="0.8" opacity="0.5"/>
+          <!-- Chelicerae + fangs (labidognath) -->
+          <ellipse cx="44" cy="60" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56" cy="60" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <path d="M 44 67 Q 47 71 50 69" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M 56 67 Q 53 71 50 69" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="label">three pairs (diads)</div>
+        <div class="sub">Sicariidae · recluse</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/hrodulf" target="_blank" rel="noopener">hrodulf</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA</a></div>
+      </div>
+
+      <!-- Araneidae -->
+      <div class="eye-cell">
+        <a class="eye-photo" href="https://www.inaturalist.org/observations/262670958" target="_blank" rel="noopener">
+          <img src="plates/eyes/araneidae.jpg" alt="Orb-weaver face (Isoxya tabulata) showing eight eyes arranged in two rows with the lateral pairs set wider apart from the median pairs"/>
+        </a>
+        <svg width="100" height="80" viewBox="0 0 100 80">
+          <ellipse cx="50" cy="44" rx="38" ry="24" fill="#e8dfc9" stroke="#c8b992" stroke-width="0.8" opacity="0.85"/>
+          <!-- Row 1: 4, laterals wider -->
+          <circle cx="20" cy="34" r="3" fill="#1f1a13"/>
+          <circle cx="40" cy="34" r="3.5" fill="#1f1a13"/>
+          <circle cx="60" cy="34" r="3.5" fill="#1f1a13"/>
+          <circle cx="80" cy="34" r="3" fill="#1f1a13"/>
+          <!-- Row 2 -->
+          <circle cx="20" cy="54" r="3" fill="#1f1a13"/>
+          <circle cx="40" cy="54" r="3.5" fill="#1f1a13"/>
+          <circle cx="60" cy="54" r="3.5" fill="#1f1a13"/>
+          <circle cx="80" cy="54" r="3" fill="#1f1a13"/>
+          <!-- bracket showing lateral spread -->
+          <path d="M 14 34 Q 14 44 14 54" fill="none" stroke="#556b2f" stroke-width="0.6"/>
+          <path d="M 86 34 Q 86 44 86 54" fill="none" stroke="#556b2f" stroke-width="0.6"/>
+          <!-- Chelicerae + fangs (labidognath) -->
+          <ellipse cx="44" cy="66" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <ellipse cx="56" cy="66" rx="3.5" ry="7" fill="#3c342a" stroke="#1f1a13" stroke-width="0.5"/>
+          <path d="M 44 73 Q 47 77 50 75" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M 56 73 Q 53 77 50 75" fill="none" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="label">eight in two rows, laterals set apart</div>
+        <div class="sub">Araneidae · orb-weavers</div>
+        <div class="credit">© <a href="https://www.inaturalist.org/people/hrodulf" target="_blank" rel="noopener">hrodulf</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SIZE STRIP
+       ========================================================= -->
+  <div class="section-head">
+    <h3>Size at a Glance</h3>
+    <span class="sect-num">§ Leg-span across</span>
+  </div>
+
+  <div class="size-ladder-wrap">
+    <svg viewBox="0 0 1000 125" class="size-ladder-svg" preserveAspectRatio="xMidYEnd meet">
+      <!-- baseline -->
+      <line x1="0" y1="112" x2="1000" y2="112" stroke="#1f1a13" stroke-width="0.6" opacity="0.35"/>
+
+      <!-- rice -->
+      <ellipse cx="100" cy="110" rx="7" ry="2.3" fill="#1f1a13" transform="rotate(-22 100 110)"/>
+
+      <!-- grape -->
+      <g>
+        <circle cx="300" cy="98" r="14" fill="none" stroke="#1f1a13" stroke-width="1.6"/>
+        <path d="M 300 84 Q 296 76 291 73" stroke="#1f1a13" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M 291 73 Q 284 69 282 75 Q 288 74 291 73 Z" fill="#1f1a13"/>
+      </g>
+
+      <!-- lime -->
+      <g>
+        <ellipse cx="500" cy="87" rx="26" ry="22" fill="none" stroke="#1f1a13" stroke-width="1.6"/>
+        <path d="M 500 65 L 494 58" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+        <path d="M 494 58 Q 485 54 484 62 Q 491 60 494 58 Z" fill="#1f1a13"/>
+      </g>
+
+      <!-- orange -->
+      <g>
+        <circle cx="700" cy="74" r="38" fill="none" stroke="#1f1a13" stroke-width="1.6"/>
+        <path d="M 700 36 L 693 28" stroke="#1f1a13" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <path d="M 693 28 Q 683 23 682 31 Q 690 28 693 28 Z" fill="#1f1a13"/>
+        <g fill="#1f1a13" opacity="0.35">
+          <circle cx="684" cy="58" r="1.2"/>
+          <circle cx="712" cy="64" r="1.2"/>
+          <circle cx="694" cy="82" r="1.2"/>
+          <circle cx="720" cy="90" r="1.2"/>
+          <circle cx="706" cy="100" r="1.2"/>
+        </g>
+      </g>
+
+      <!-- grapefruit -->
+      <g>
+        <circle cx="900" cy="62" r="50" fill="none" stroke="#1f1a13" stroke-width="1.6"/>
+        <path d="M 852 62 Q 900 66 948 62" stroke="#1f1a13" stroke-width="0.6" fill="none" opacity="0.3"/>
+        <path d="M 900 15 Q 897 62 900 109" stroke="#1f1a13" stroke-width="0.6" fill="none" opacity="0.3"/>
+        <g fill="#1f1a13" opacity="0.3">
+          <circle cx="880" cy="42" r="1.4"/>
+          <circle cx="920" cy="50" r="1.4"/>
+          <circle cx="884" cy="80" r="1.4"/>
+          <circle cx="924" cy="78" r="1.4"/>
+          <circle cx="904" cy="95" r="1.4"/>
+        </g>
+        <path d="M 900 11 L 897 5" stroke="#1f1a13" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+    <div class="size-ladder">
+    <div class="rung">
+      <div class="rung-tier">Tiny</div>
+      <div class="rung-range">&lt; 15 mm</div>
+      <div class="rung-food">rice</div>
+      <ul class="rung-fams"><li>sheet weavers</li></ul>
+    </div>
+<div class="rung rung-wide">
+      <div class="rung-tier">Small</div>
+      <div class="rung-range">15 – 30 mm</div>
+      <div class="rung-food">grape</div>
+      <ul class="rung-fams"><li>jumpers</li><li>widows</li><li>crab spiders</li><li>parson</li><li>sow-bug killer</li><li>recluse</li><li>false wolf</li></ul>
+    </div>
+<div class="rung">
+      <div class="rung-tier">Medium</div>
+      <div class="rung-range">30 – 60 mm</div>
+      <div class="rung-food">lime</div>
+      <ul class="rung-fams"><li>orb weavers</li><li>funnel weavers</li><li>cellar</li><li>lynx</li></ul>
+    </div>
+<div class="rung">
+      <div class="rung-tier">Large</div>
+      <div class="rung-range">60 – 100 mm</div>
+      <div class="rung-food">orange</div>
+      <ul class="rung-fams"><li>wolf spiders</li><li>turret</li></ul>
+    </div>
+<div class="rung">
+      <div class="rung-tier">Very Large</div>
+      <div class="rung-range">&gt; 100 mm</div>
+      <div class="rung-food">grapefruit</div>
+      <ul class="rung-fams"><li>tarantulas</li></ul>
+    </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FAMILIES
+       ========================================================= -->
+  <div class="section-head">
+    <h3>The Families</h3>
+  </div>
+
+  <div class="family-list">
+
+
+    <!-- ========== 1. SALTICIDAE ========== -->
+    <article class="family tier-1">
+      <div class="family-left">
+        <div class="number">Family 01</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="28" cy="42" r="6" fill="#1f1a13"/><circle cx="26.2" cy="39.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="48" cy="42" r="17" fill="#1f1a13"/><circle cx="42.9" cy="36.05" r="4.76" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="72" cy="42" r="17" fill="#1f1a13"/><circle cx="66.9" cy="36.05" r="4.76" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="92" cy="42" r="6" fill="#1f1a13"/><circle cx="90.2" cy="39.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="44" cy="36" r="4" fill="#9a4a28" opacity="0.7"/>
+          <circle cx="68" cy="36" r="4" fill="#9a4a28" opacity="0.7"/>
+          <circle cx="42" cy="66" r="3" fill="#1f1a13"/>
+          <circle cx="78" cy="66" r="3" fill="#1f1a13"/>
+          <circle cx="38" cy="78" r="4" fill="#1f1a13"/><circle cx="36.8" cy="76.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="82" cy="78" r="4" fill="#1f1a13"/><circle cx="80.8" cy="76.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+        </svg>
+        <div class="eye-caption">Headlight AME<br>4–2–2 rows</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground line -->
+            <line x1="10" y1="55" x2="100" y2="55" stroke="#3c342a" stroke-width="1"/>
+            <!-- leap arc -->
+            <path d="M 25 55 Q 55 10 85 55" fill="none" stroke="#3c342a" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <!-- silk dragline hanging from apex -->
+            <line x1="55" y1="18" x2="55" y2="50" stroke="#6a5f50" stroke-width="0.5" stroke-dasharray="1,2"/>
+            <!-- arrowhead at landing -->
+            <path d="M 80 51 L 85 55 L 80 58" fill="none" stroke="#3c342a" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- spider at arc apex -->
+            <circle cx="55" cy="18" r="2.8" fill="#9a4a28"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Leap Hunter</div>
+      </div>
+      <div class="family-right">
+        <h4>Salticidae</h4>
+        <p class="common">Jumping Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Two huge forward-facing eyes like car headlights on a stocky, short-legged body. Often turn to face you. If it watches you back, it's a jumper.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>4–15 mm body; some <a class="sci-link" href="https://www.inaturalist.org/taxa/53810" target="_blank" rel="noopener"><em>Phidippus</em></a> to 22 mm</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active daytime hunter. No snare web. Drags a silk dragline while stalking.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Sun-warmed walls, fences, leaves, windowsills. Everywhere.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Boxy front body, short strong legs, often iridescent scales or bright patches.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1362557" target="_blank" rel="noopener"><em>Phidippus audax</em></a> <span>— Bold jumper, black with white spots, iridescent green fangs</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1362558" target="_blank" rel="noopener"><em>Phidippus johnsoni</em></a> <span>— Red-backed, mimics velvet ant</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/228315" target="_blank" rel="noopener"><em>Platycryptus californicus</em></a> <span>— Flat, bark-dwelling, chevron-backed</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/68901" target="_blank" rel="noopener"><em>Salticus scenicus</em></a> <span>— Zebra jumper, walls and fences, common in houses</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/01_salticidae.png" alt="salticidae plate">
+          <figcaption class="plate-caption">Plate 01 — Salticidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/48139" target="_blank" rel="noopener">iNaturalist · Salticidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 2. THERIDIIDAE ========== -->
+    <article class="family tier-1 medical">
+      <div class="family-left">
+        <div class="number">Family 02</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="38" cy="40" r="4" fill="#1f1a13"/><circle cx="36.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="52" cy="40" r="4" fill="#1f1a13"/><circle cx="50.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="68" cy="40" r="4" fill="#1f1a13"/><circle cx="66.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="82" cy="40" r="4" fill="#1f1a13"/><circle cx="80.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="38" cy="58" r="4" fill="#1f1a13"/><circle cx="36.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="52" cy="58" r="4" fill="#1f1a13"/><circle cx="50.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="68" cy="58" r="4" fill="#1f1a13"/><circle cx="66.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="82" cy="58" r="4" fill="#1f1a13"/><circle cx="80.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+        </svg>
+        <div class="eye-caption">8 equal eyes<br>2 rows of 4</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground -->
+            <line x1="10" y1="62" x2="100" y2="62" stroke="#3c342a" stroke-width="1"/>
+            <!-- chaotic tangle web -->
+            <g stroke="#3c342a" stroke-width="0.7" fill="none" stroke-linecap="round">
+              <path d="M 18 14 L 58 32"/>
+              <path d="M 30 8 L 70 30"/>
+              <path d="M 45 10 L 85 24"/>
+              <path d="M 60 8 L 28 28"/>
+              <path d="M 80 14 L 48 30"/>
+              <path d="M 15 22 L 75 18"/>
+              <path d="M 38 22 L 90 30"/>
+              <path d="M 25 28 L 65 15"/>
+            </g>
+            <!-- gum-footed vertical threads to ground -->
+            <g stroke="#6a5f50" stroke-width="0.5" stroke-dasharray="1.5,2">
+              <line x1="30" y1="28" x2="30" y2="62"/>
+              <line x1="50" y1="30" x2="50" y2="62"/>
+              <line x1="72" y1="28" x2="72" y2="62"/>
+              <line x1="85" y1="30" x2="85" y2="62"/>
+            </g>
+            <!-- spider hanging inverted -->
+            <ellipse cx="55" cy="30" rx="3" ry="4" fill="#9a4a28"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Cobweb · Gum Threads</div>
+      </div>
+      <div class="family-right">
+        <h4>Theridiidae <span class="medical-flag">Medically Significant</span></h4>
+        <p class="common">Cobweb Spiders · Widows · False Widows</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Glossy, globe-shaped abdomen much larger than the head, hanging upside down in a messy tangle web. Comb of serrated bristles on back leg tips (rarely visible without a lens).
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>3–15 mm. Mature female black widow: 8–13 mm body, much bigger than male.</dd>
+          </div>
+          <div class="attr">
+            <dt>Web Type</dt><dd>Irregular cobweb, no ordered geometry. Sticky sticky-tipped threads anchor to ground/surface.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Sheds, undersides of furniture, woodpiles, rock crevices, garage corners.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Legs long and thin; abdomen is the biggest, most glossy part. Widows have red hourglass on the underside.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/47382" target="_blank" rel="noopener"><em>Latrodectus hesperus</em></a> <span>— Western black widow, native, red hourglass, glossy black</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/61997" target="_blank" rel="noopener"><em>Steatoda grossa</em></a> <span>— False widow, purple-brown, whitish markings, not medically significant</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/120583" target="_blank" rel="noopener"><em>Parasteatoda tepidariorum</em></a> <span>— Common house spider, mottled brown, globose</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/02_theridiidae.png" alt="theridiidae plate">
+          <figcaption class="plate-caption">Plate 02 — Theridiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47371" target="_blank" rel="noopener">iNaturalist · Theridiidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 3. ARANEIDAE ========== -->
+    <article class="family tier-1">
+      <div class="family-left">
+        <div class="number">Family 03</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="22" cy="40" r="3" fill="#1f1a13"/>
+          <circle cx="48" cy="40" r="4" fill="#1f1a13"/><circle cx="46.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="72" cy="40" r="4" fill="#1f1a13"/><circle cx="70.8" cy="38.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="98" cy="40" r="3" fill="#1f1a13"/>
+          <circle cx="22" cy="60" r="3" fill="#1f1a13"/>
+          <circle cx="48" cy="60" r="4" fill="#1f1a13"/><circle cx="46.8" cy="58.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="72" cy="60" r="4" fill="#1f1a13"/><circle cx="70.8" cy="58.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="98" cy="60" r="3" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">Laterals small,<br>widely separated</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <g stroke="#3c342a" stroke-width="0.7" fill="none">
+              <!-- 8 radial spokes -->
+              <line x1="55" y1="4" x2="55" y2="66"/>
+              <line x1="13" y1="35" x2="97" y2="35"/>
+              <line x1="25" y1="4" x2="85" y2="66"/>
+              <line x1="85" y1="4" x2="25" y2="66"/>
+              <line x1="18" y1="11" x2="92" y2="59"/>
+              <line x1="92" y1="11" x2="18" y2="59"/>
+              <!-- concentric spiral-substitute rings -->
+              <circle cx="55" cy="35" r="5"/>
+              <circle cx="55" cy="35" r="11"/>
+              <circle cx="55" cy="35" r="18"/>
+              <circle cx="55" cy="35" r="25"/>
+              <circle cx="55" cy="35" r="31"/>
+            </g>
+            <!-- spider at center (hub) -->
+            <circle cx="55" cy="35" r="2.8" fill="#9a4a28"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Orb Web</div>
+      </div>
+      <div class="family-right">
+        <h4>Araneidae</h4>
+        <p class="common">Orb Weavers</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Geometric wheel-and-spoke web hung in open air. Spider sits head-down in the center or hides in a nearby leaf retreat. Abdomen usually bulbous, often patterned.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>5–25 mm. Females much larger than males.</dd>
+          </div>
+          <div class="attr">
+            <dt>Web Type</dt><dd>Vertical orb with radial spokes and spiral sticky thread. Often rebuilt nightly.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Between shrubs, eaves, fences, garden gaps. Active at night, hidden by day.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Abdomen larger than front body, often with top-side markings (leaf-shaped pattern). Eight legs held in X or spread on web.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/52628" target="_blank" rel="noopener"><em>Araneus diadematus</em></a> <span>— Cross orb-weaver, white cross on abdomen, introduced but common</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/123713" target="_blank" rel="noopener"><em>Neoscona oaxacensis</em></a> <span>— Western spotted orb-weaver, dominant in coastal gardens</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/67707" target="_blank" rel="noopener"><em>Argiope aurantia</em></a> <span>— Yellow garden spider, bold yellow-black, builds <a class="support-link" href="https://en.wikipedia.org/wiki/Stabilimentum" target="_blank" rel="noopener">stabilimentum</a> (zigzag)</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/03_araneidae.png" alt="araneidae plate">
+          <figcaption class="plate-caption">Plate 03 — Araneidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47535" target="_blank" rel="noopener">iNaturalist · Araneidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 4. LYCOSIDAE ========== -->
+    <article class="family tier-1">
+      <div class="family-left">
+        <div class="number">Family 04</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="40" cy="28" r="3" fill="#1f1a13"/>
+          <circle cx="52" cy="28" r="3" fill="#1f1a13"/>
+          <circle cx="68" cy="28" r="3" fill="#1f1a13"/>
+          <circle cx="80" cy="28" r="3" fill="#1f1a13"/>
+          <circle cx="46" cy="52" r="10" fill="#1f1a13"/><circle cx="43" cy="48.5" r="2.8" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="74" cy="52" r="10" fill="#1f1a13"/><circle cx="71" cy="48.5" r="2.8" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="30" cy="72" r="6" fill="#1f1a13"/><circle cx="28.2" cy="69.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="90" cy="72" r="6" fill="#1f1a13"/><circle cx="88.2" cy="69.9" r="1.68" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="44" cy="48" r="2" fill="#9a4a28" opacity="0.6"/>
+          <circle cx="72" cy="48" r="2" fill="#9a4a28" opacity="0.6"/>
+        </svg>
+        <div class="eye-caption">4–2–2<br>Huge PME pair</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground -->
+            <line x1="10" y1="58" x2="100" y2="58" stroke="#3c342a" stroke-width="1"/>
+            <!-- motion dashes / speed lines -->
+            <g stroke="#6a5f50" stroke-width="1" stroke-linecap="round">
+              <line x1="15" y1="50" x2="24" y2="50"/>
+              <line x1="20" y1="42" x2="29" y2="42"/>
+              <line x1="30" y1="50" x2="39" y2="50"/>
+              <line x1="35" y1="42" x2="44" y2="42"/>
+              <line x1="45" y1="50" x2="54" y2="50"/>
+            </g>
+            <!-- spider (larger, running right) -->
+            <ellipse cx="78" cy="48" rx="9" ry="5.5" fill="#9a4a28"/>
+            <circle cx="67" cy="47" r="4" fill="#9a4a28"/>
+            <!-- running legs -->
+            <g stroke="#9a4a28" stroke-width="1" fill="none" stroke-linecap="round">
+              <path d="M 64 45 L 58 40"/>
+              <path d="M 65 47 L 57 48"/>
+              <path d="M 67 50 L 62 56"/>
+              <path d="M 72 52 L 70 58"/>
+              <path d="M 84 52 L 87 58"/>
+              <path d="M 86 49 L 94 51"/>
+              <path d="M 86 46 L 94 43"/>
+              <path d="M 82 43 L 88 37"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Ground Runner</div>
+      </div>
+      <div class="family-right">
+        <h4>Lycosidae</h4>
+        <p class="common">Wolf Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Large ground spider with two oversized eyes staring straight up at you from a row of four small eyes. Eyeshine at night (reflective eye layer). Females carry egg sacs attached to silk spinners.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>10–30 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active at night on the ground. Some build burrows with silk-lined entrances.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Leaf litter, under rocks, lawns, trail edges. Enter homes in fall.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Drab brown/gray lengthwise stripes. Legs long, muscular, sprinter's build. Mothers carry spiderlings on back.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/122621" target="_blank" rel="noopener"><em>Hogna carolinensis</em></a> (and relatives) <span>— Large, up to 30 mm, ground-runner</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/47415" target="_blank" rel="noopener"><em>Pardosa spp.</em></a> <span>— Smaller thin-legged wolves, sunny open ground</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/230594" target="_blank" rel="noopener"><em>Schizocosa mccooki</em></a> <span>— Common medium wolf, striped</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/04_lycosidae.png" alt="lycosidae plate">
+          <figcaption class="plate-caption">Plate 04 — Lycosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47416" target="_blank" rel="noopener">iNaturalist · Lycosidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 5. AGELENIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 05</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="32" cy="38" r="3.5" fill="#1f1a13"/>
+          <circle cx="50" cy="38" r="3.5" fill="#1f1a13"/>
+          <circle cx="70" cy="38" r="3.5" fill="#1f1a13"/>
+          <circle cx="88" cy="38" r="3.5" fill="#1f1a13"/>
+          <circle cx="34" cy="56" r="3.5" fill="#1f1a13"/>
+          <circle cx="52" cy="56" r="3.5" fill="#1f1a13"/>
+          <circle cx="68" cy="56" r="3.5" fill="#1f1a13"/>
+          <circle cx="86" cy="56" r="3.5" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">8 equal<br>rear row curved backward</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- horizontal sheet web (slightly draped) -->
+            <path d="M 10 32 Q 45 30 70 34" fill="none" stroke="#3c342a" stroke-width="1.2"/>
+            <!-- cross-threads on sheet (texture) -->
+            <g stroke="#6a5f50" stroke-width="0.4">
+              <line x1="18" y1="31" x2="22" y2="22"/>
+              <line x1="30" y1="30" x2="34" y2="18"/>
+              <line x1="42" y1="30" x2="46" y2="15"/>
+              <line x1="55" y1="31" x2="58" y2="18"/>
+            </g>
+            <!-- funnel retreat angling back and down -->
+            <path d="M 65 34 L 88 52 L 98 60" fill="none" stroke="#3c342a" stroke-width="1"/>
+            <path d="M 73 34 L 92 48" fill="none" stroke="#3c342a" stroke-width="1"/>
+            <!-- funnel interior shading -->
+            <path d="M 65 36 L 88 52 L 92 48 L 73 34 Z" fill="#1f1a13" opacity="0.18"/>
+            <!-- spider waiting at funnel mouth -->
+            <ellipse cx="78" cy="42" rx="3.5" ry="2.5" fill="#9a4a28"/>
+            <!-- spinneret hint -->
+            <line x1="80" y1="43" x2="84" y2="45" stroke="#9a4a28" stroke-width="0.6"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Sheet + Funnel</div>
+      </div>
+      <div class="family-right">
+        <h4>Agelenidae</h4>
+        <p class="common">Funnel Weavers</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Flat sheet web ending in a tubular funnel retreat. Spider waits just inside the funnel, ready to charge out. Two prominent rear silk spinners protrude past the abdomen.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>6–20 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Web Type</dt><dd>Horizontal sheet plus funnel retreat. Non-sticky; relies on speed.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Corners of ground-level vegetation, rock piles, under eaves, tall grass.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Brown lengthwise markings; front body often with darker band. Legs long.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/211209" target="_blank" rel="noopener"><em>Hololena nedra</em></a> <span>— Common Bay Area funnel weaver</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/454859" target="_blank" rel="noopener"><em>Eratigena agrestis</em></a> <span>— "Hobo spider"; range contested, mostly PNW</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153507" target="_blank" rel="noopener"><em>Tegenaria domestica</em></a> <span>— Barn funnel weaver, common in houses</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/05_agelenidae.png" alt="agelenidae plate">
+          <figcaption class="plate-caption">Plate 05 — Agelenidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47345" target="_blank" rel="noopener">iNaturalist · Agelenidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 6. PHOLCIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 06</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <!-- 3-2-3 triads -->
+          <circle cx="36" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="44" cy="44" r="3" fill="#1f1a13"/>
+          <circle cx="40" cy="52" r="3" fill="#1f1a13"/>
+          <circle cx="76" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="84" cy="44" r="3" fill="#1f1a13"/>
+          <circle cx="80" cy="52" r="3" fill="#1f1a13"/>
+          <circle cx="57" cy="50" r="2" fill="#1f1a13"/>
+          <circle cx="63" cy="50" r="2" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">3-2-3 triad pattern</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ceiling and wall (corner) -->
+            <line x1="10" y1="12" x2="100" y2="12" stroke="#3c342a" stroke-width="1.2"/>
+            <line x1="100" y1="12" x2="100" y2="65" stroke="#3c342a" stroke-width="1.2"/>
+            <!-- loose messy tangle in corner -->
+            <g stroke="#6a5f50" stroke-width="0.5" fill="none">
+              <path d="M 50 14 L 98 50"/>
+              <path d="M 60 14 L 99 42"/>
+              <path d="M 70 15 L 98 30"/>
+              <path d="M 78 18 L 98 55"/>
+              <path d="M 55 18 L 92 58"/>
+              <path d="M 65 20 L 88 45"/>
+              <path d="M 63 28 L 98 35"/>
+              <path d="M 75 23 L 92 52"/>
+              <path d="M 68 32 L 98 48"/>
+            </g>
+            <!-- tiny long-legged spider hanging inverted -->
+            <ellipse cx="80" cy="32" rx="1.5" ry="2.5" fill="#9a4a28"/>
+            <!-- super long thin legs -->
+            <g stroke="#9a4a28" stroke-width="0.4" fill="none" stroke-linecap="round">
+              <path d="M 79 30 L 64 18"/>
+              <path d="M 79 31 L 58 26"/>
+              <path d="M 79 33 L 68 42"/>
+              <path d="M 81 30 L 94 18"/>
+              <path d="M 81 32 L 98 24"/>
+              <path d="M 81 34 L 95 40"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Corner Tangle</div>
+      </div>
+      <div class="family-right">
+        <h4>Pholcidae</h4>
+        <p class="common">Cellar Spiders · "Daddy Long-Legs"</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Tiny pale body with legs four to five times longer. Hangs inverted in a loose mess of web in a basement corner. Vibrates body wildly when disturbed (whirling defense).
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>2–10 mm body; leg span to 50 mm.</dd>
+          </div>
+          <div class="attr">
+            <dt>Web Type</dt><dd>Tangled, irregular, non-sticky. Catches prey including other spiders.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Ceilings, cellars, garages, crawl spaces, vegetation in southern CA.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Pale gray/tan. Abdomen long in <a class="sci-link" href="https://www.inaturalist.org/taxa/67329" target="_blank" rel="noopener"><em>Pholcus</em></a>, round in <a class="sci-link" href="https://www.inaturalist.org/taxa/211211" target="_blank" rel="noopener"><em>Holocnemus</em></a>.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/67328" target="_blank" rel="noopener"><em>Pholcus phalangioides</em></a> <span>— Long-bodied cellar spider, cosmopolitan indoors</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/211210" target="_blank" rel="noopener"><em>Holocnemus pluchei</em></a> <span>— Marbled cellar spider, huge Mediterranean invader, now everywhere in CA</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/298638" target="_blank" rel="noopener"><em>Physocyclus globosus</em></a> <span>— Short-bodied, round abdomen</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/06_pholcidae.png" alt="pholcidae plate">
+          <figcaption class="plate-caption">Plate 06 — Pholcidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47823" target="_blank" rel="noopener">iNaturalist · Pholcidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 7. THOMISIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 07</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="34" cy="32" r="3" fill="#1f1a13"/>
+          <circle cx="50" cy="34" r="3" fill="#1f1a13"/>
+          <circle cx="70" cy="34" r="3" fill="#1f1a13"/>
+          <circle cx="86" cy="32" r="3" fill="#1f1a13"/>
+          <circle cx="36" cy="56" r="3" fill="#1f1a13"/>
+          <circle cx="52" cy="56" r="3" fill="#1f1a13"/>
+          <circle cx="68" cy="56" r="3" fill="#1f1a13"/>
+          <circle cx="84" cy="56" r="3" fill="#1f1a13"/>
+          <path d="M 30 32 Q 60 20 90 32" fill="none" stroke="#556b2f" stroke-width="0.7" opacity="0.6"/>
+        </svg>
+        <div class="eye-caption">All small, curved backward<br>often on tubercles</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- stem -->
+            <path d="M 55 32 Q 56 50 52 65" fill="none" stroke="#556b2f" stroke-width="1.2"/>
+            <!-- leaves -->
+            <path d="M 54 50 Q 42 45 38 52 Q 46 55 55 52" fill="#556b2f" opacity="0.5"/>
+            <path d="M 54 42 Q 66 37 70 44 Q 62 47 55 44" fill="#556b2f" opacity="0.5"/>
+            <!-- flower petals (6) -->
+            <g fill="#b8893a" opacity="0.75">
+              <ellipse cx="55" cy="22" rx="5" ry="11"/>
+              <ellipse cx="55" cy="22" rx="5" ry="11" transform="rotate(60 55 22)"/>
+              <ellipse cx="55" cy="22" rx="5" ry="11" transform="rotate(120 55 22)"/>
+            </g>
+            <!-- flower center -->
+            <circle cx="55" cy="22" r="4.5" fill="#9a4a28" opacity="0.85"/>
+            <!-- spider on flower (small, centered, waiting) -->
+            <ellipse cx="55" cy="22" rx="2.5" ry="2" fill="#1f1a13"/>
+            <!-- crab-like extended front legs -->
+            <g stroke="#1f1a13" stroke-width="0.6" fill="none" stroke-linecap="round">
+              <path d="M 53 21 L 47 17"/>
+              <path d="M 57 21 L 63 17"/>
+              <path d="M 53 23 L 49 27"/>
+              <path d="M 57 23 L 61 27"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Flower Ambush</div>
+      </div>
+      <div class="family-right">
+        <h4>Thomisidae</h4>
+        <p class="common">Crab Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          First two pairs of legs enormously longer than the back two, held sideways like crab claws. Walks sideways. Often sits motionless on a flower.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>4–10 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Ambush on flowers. Many species can change color (yellow ↔ white) over days.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Petals, flower heads, foliage. Spring through fall.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Abdomen wider than long in some genera, angular shoulders.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/55746" target="_blank" rel="noopener"><em>Misumena vatia</em></a> <span>— Goldenrod crab spider, color-shifter, white to yellow</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/62035" target="_blank" rel="noopener"><em>Misumenoides formosipes</em></a> <span>— White-banded, "smiling" face marking</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/129662" target="_blank" rel="noopener"><em>Mecaphesa</em></a> spp. <span>— Smaller, hairy, common on native flora</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/07_thomisidae.png" alt="thomisidae plate">
+          <figcaption class="plate-caption">Plate 07 — Thomisidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47866" target="_blank" rel="noopener">iNaturalist · Thomisidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 8. THERAPHOSIDAE ========== -->
+    <article class="family tier-1">
+      <div class="family-left">
+        <div class="number">Family 08</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <ellipse cx="60" cy="50" rx="18" ry="12" fill="none" stroke="#6a5f50" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <circle cx="52" cy="44" r="2.8" fill="#1f1a13"/>
+          <circle cx="60" cy="43" r="3.2" fill="#1f1a13"/>
+          <circle cx="68" cy="44" r="2.8" fill="#1f1a13"/>
+          <circle cx="50" cy="52" r="2.5" fill="#1f1a13"/>
+          <circle cx="60" cy="53" r="2.3" fill="#1f1a13"/>
+          <circle cx="70" cy="52" r="2.5" fill="#1f1a13"/>
+          <circle cx="54" cy="57" r="2.3" fill="#1f1a13"/>
+          <circle cx="66" cy="57" r="2.3" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">Tight cluster on<br>eye bump</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground surface (slightly irregular) -->
+            <path d="M 8 30 Q 25 28 40 30 L 70 30 Q 88 30 102 32" fill="none" stroke="#3c342a" stroke-width="1.2"/>
+            <!-- underground shading -->
+            <path d="M 8 30 Q 25 28 40 30 L 70 30 Q 88 30 102 32 L 102 68 L 8 68 Z" fill="#3c342a" opacity="0.14"/>
+            <!-- burrow shaft (goes down and widens) -->
+            <path d="M 48 30 Q 46 50 48 66 M 62 30 Q 64 50 62 66" fill="none" stroke="#1f1a13" stroke-width="0.6" opacity="0.5"/>
+            <!-- dark entrance hole -->
+            <ellipse cx="55" cy="31" rx="9" ry="2.8" fill="#1f1a13"/>
+            <!-- pebble / dirt mound at entrance -->
+            <path d="M 40 30 Q 43 27 45 30" fill="none" stroke="#3c342a" stroke-width="0.7"/>
+            <path d="M 68 30 Q 70 27 72 30" fill="none" stroke="#3c342a" stroke-width="0.7"/>
+            <!-- eyeshine / tarantula inside hinted -->
+            <circle cx="53" cy="42" r="0.8" fill="#9a4a28"/>
+            <circle cx="57" cy="42" r="0.8" fill="#9a4a28"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Burrow</div>
+      </div>
+      <div class="family-right">
+        <h4>Theraphosidae</h4>
+        <p class="common">Tarantulas</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Very large, hairy, with fangs that strike downward (not sideways). Walks with a distinctive "ambling" gait. In CA, almost always <a class="sci-link" href="https://www.inaturalist.org/taxa/47423" target="_blank" rel="noopener"><em>Aphonopelma</em></a>. Males wander in late summer / early fall looking for mates.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>Body 40–70 mm. Leg span to 15 cm.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Burrow-dwelling ambush predator. Fangs strike straight down (<a class="support-link" href="https://en.wikipedia.org/wiki/Mygalomorphae" target="_blank" rel="noopener">orthognathous</a>).</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Grasslands and oak woodland of inland CA; Central Valley, Diablo Range, foothills. Not typical in coastal Bay Area.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Uniformly hairy, usually black or brown, legs thick. <a class="support-link" href="https://en.wikipedia.org/wiki/Urticating_hair" target="_blank" rel="noopener">Urticating hairs</a> kicked from abdomen in defense.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/180759" target="_blank" rel="noopener"><em>Aphonopelma iodius</em></a> <span>— Desert tarantula, widespread</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/55421" target="_blank" rel="noopener"><em>Aphonopelma eutylenum</em></a> <span>— California ebony, coast ranges</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/501065" target="_blank" rel="noopener"><em>Aphonopelma johnnycashi</em></a> <span>— Named for Johnny Cash, Central Valley</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/08_theraphosidae.png" alt="theraphosidae plate">
+          <figcaption class="plate-caption">Plate 08 — Theraphosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47424" target="_blank" rel="noopener">iNaturalist · Theraphosidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 9. NEMESIIDAE (Calisoga) ========== -->
+    <article class="family tier-1">
+      <div class="family-left">
+        <div class="number">Family 09</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <ellipse cx="60" cy="50" rx="16" ry="11" fill="none" stroke="#6a5f50" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <circle cx="53" cy="45" r="2.5" fill="#1f1a13"/>
+          <circle cx="60" cy="44" r="3" fill="#1f1a13"/>
+          <circle cx="67" cy="45" r="2.5" fill="#1f1a13"/>
+          <circle cx="51" cy="52" r="2.2" fill="#1f1a13"/>
+          <circle cx="60" cy="52" r="2" fill="#1f1a13"/>
+          <circle cx="69" cy="52" r="2.2" fill="#1f1a13"/>
+          <circle cx="55" cy="57" r="2" fill="#1f1a13"/>
+          <circle cx="65" cy="57" r="2" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">Tight cluster on a bump<br>(tarantula-like)</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground surface -->
+            <path d="M 8 32 L 102 32" fill="none" stroke="#3c342a" stroke-width="1.2"/>
+            <!-- underground shading -->
+            <path d="M 8 32 L 102 32 L 102 68 L 8 68 Z" fill="#3c342a" opacity="0.14"/>
+            <!-- silk sheet radiating from entrance (the distinguishing feature) -->
+            <ellipse cx="55" cy="31" rx="22" ry="2" fill="#9a4a28" opacity="0.3"/>
+            <g stroke="#9a4a28" stroke-width="0.5" stroke-dasharray="1.5,1.5">
+              <line x1="35" y1="31" x2="28" y2="24"/>
+              <line x1="40" y1="30" x2="34" y2="20"/>
+              <line x1="48" y1="30" x2="46" y2="18"/>
+              <line x1="63" y1="30" x2="66" y2="18"/>
+              <line x1="70" y1="30" x2="78" y2="20"/>
+              <line x1="75" y1="31" x2="84" y2="24"/>
+            </g>
+            <!-- dark entrance hole -->
+            <ellipse cx="55" cy="32" rx="7" ry="2.2" fill="#1f1a13"/>
+            <!-- burrow shaft -->
+            <path d="M 50 32 Q 48 52 50 66 M 60 32 Q 62 52 60 66" fill="none" stroke="#1f1a13" stroke-width="0.6" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Burrow + Silk Sheet</div>
+      </div>
+      <div class="family-right">
+        <h4>Nemesiidae</h4>
+        <p class="common">Calisoga · "False Tarantula"</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Looks like a small tarantula but smaller, less shaggy, and distinctly more active/aggressive. Builds silk-lined burrow with sheet web at entrance. Extremely common in Oakland and East Bay hills — the "tarantula" most people in the Bay Area see is almost always this.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>15–30 mm body. Legs robust but not as thick as tarantulas.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Burrow with entrance webbing; ambushes passing prey. <a class="support-link" href="https://en.wikipedia.org/wiki/Mygalomorphae" target="_blank" rel="noopener">Mygalomorph</a> (orthognathous fangs).</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Coast Range hills, oak woodland, grassy slopes. Oakland hills especially abundant.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Brown to reddish-brown. Less uniformly hairy than tarantula. Males wander in fall.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/50989" target="_blank" rel="noopener"><em>Calisoga longitarsis</em></a> <span>— Most frequently encountered Bay Area species</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/844949" target="_blank" rel="noopener"><em>Calisoga theveneti</em></a> <span>— Overlapping range, slightly different genital morphology</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/09_nemesiidae.png" alt="nemesiidae plate">
+          <figcaption class="plate-caption">Plate 09 — Nemesiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/47369" target="_blank" rel="noopener">iNaturalist · Nemesiidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 10. ZOROPSIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 10</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="38" cy="36" r="4" fill="#1f1a13"/><circle cx="36.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="54" cy="36" r="4" fill="#1f1a13"/><circle cx="52.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="66" cy="36" r="4" fill="#1f1a13"/><circle cx="64.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="82" cy="36" r="4" fill="#1f1a13"/><circle cx="80.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="42" cy="58" r="4" fill="#1f1a13"/><circle cx="40.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="54" cy="58" r="4" fill="#1f1a13"/><circle cx="52.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="66" cy="58" r="4" fill="#1f1a13"/><circle cx="64.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="78" cy="58" r="4" fill="#1f1a13"/><circle cx="76.8" cy="56.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+        </svg>
+        <div class="eye-caption">8 in 2 rows,<br>back row curved backward</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- wall plane (slight tint) -->
+            <rect x="10" y="8" width="90" height="57" fill="#3c342a" opacity="0.06" stroke="#3c342a" stroke-width="1"/>
+            <!-- mortar lines (suggest wall texture) -->
+            <g stroke="#6a5f50" stroke-width="0.4" opacity="0.6">
+              <line x1="10" y1="23" x2="100" y2="23"/>
+              <line x1="10" y1="40" x2="100" y2="40"/>
+              <line x1="10" y1="55" x2="100" y2="55"/>
+              <line x1="38" y1="8" x2="38" y2="23"/>
+              <line x1="68" y1="8" x2="68" y2="23"/>
+              <line x1="24" y1="23" x2="24" y2="40"/>
+              <line x1="55" y1="23" x2="55" y2="40"/>
+              <line x1="84" y1="23" x2="84" y2="40"/>
+              <line x1="42" y1="40" x2="42" y2="55"/>
+              <line x1="72" y1="40" x2="72" y2="55"/>
+              <line x1="28" y1="55" x2="28" y2="65"/>
+              <line x1="60" y1="55" x2="60" y2="65"/>
+              <line x1="88" y1="55" x2="88" y2="65"/>
+            </g>
+            <!-- spider on wall, flat-pressed -->
+            <ellipse cx="60" cy="35" rx="7" ry="4" fill="#9a4a28"/>
+            <circle cx="52" cy="34" r="3" fill="#9a4a28"/>
+            <g stroke="#9a4a28" stroke-width="0.8" fill="none" stroke-linecap="round">
+              <path d="M 50 32 L 42 28"/>
+              <path d="M 50 35 L 41 36"/>
+              <path d="M 52 37 L 46 42"/>
+              <path d="M 58 39 L 54 45"/>
+              <path d="M 63 39 L 66 45"/>
+              <path d="M 65 37 L 72 40"/>
+              <path d="M 65 34 L 72 30"/>
+              <path d="M 62 32 L 66 26"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Wall Hunter</div>
+      </div>
+      <div class="family-right">
+        <h4>Zoropsidae</h4>
+        <p class="common">False Wolf Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Looks like a wolf spider on the wall of your house. Mediterranean invader now common throughout Bay Area homes. Cribellate (uses hackled silk); legs stouter and body flatter than Lycosidae.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>10–20 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active night hunter. Lays patches of <a class="support-link" href="https://en.wikipedia.org/wiki/Cribellum" target="_blank" rel="noopener">cribellate silk</a> near resting spots.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Inside walls, behind furniture, basements, garages. Less often outdoors in CA.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Mottled brown with chevron or banding on abdomen. Eyes small, even — no wolf-spider giants.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/127112" target="_blank" rel="noopener"><em>Zoropsis spinimana</em></a> <span>— Introduced from Europe; now established throughout SF Bay Area</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/10_zoropsidae.png" alt="zoropsidae plate">
+          <figcaption class="plate-caption">Plate 10 — Zoropsidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/127113" target="_blank" rel="noopener">iNaturalist · Zoropsidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 11. OXYOPIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 11</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="60" cy="26" r="4" fill="#1f1a13"/><circle cx="58.8" cy="24.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="42" cy="36" r="4" fill="#1f1a13"/><circle cx="40.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="78" cy="36" r="4" fill="#1f1a13"/><circle cx="76.8" cy="34.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="42" cy="54" r="4" fill="#1f1a13"/><circle cx="40.8" cy="52.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="78" cy="54" r="4" fill="#1f1a13"/><circle cx="76.8" cy="52.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="60" cy="64" r="4" fill="#1f1a13"/><circle cx="58.8" cy="62.6" r="1.12" fill="#f2ebdc" opacity="0.8"/>
+          <circle cx="52" cy="74" r="2" fill="#1f1a13"/>
+          <circle cx="68" cy="74" r="2" fill="#1f1a13"/>
+          <polygon points="60,26 42,36 42,54 60,64 78,54 78,36" fill="none" stroke="#556b2f" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <div class="eye-caption">Hexagon of 6<br>+ 2 tiny below</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- leaf shape -->
+            <path d="M 55 8 Q 22 22 22 43 Q 33 60 55 63 Q 77 60 88 43 Q 88 22 55 8 Z" fill="#556b2f" opacity="0.22" stroke="#556b2f" stroke-width="1"/>
+            <!-- leaf midrib -->
+            <line x1="55" y1="10" x2="55" y2="62" stroke="#556b2f" stroke-width="0.8"/>
+            <!-- leaf veins -->
+            <g stroke="#556b2f" stroke-width="0.4" fill="none">
+              <path d="M 55 20 Q 40 23 30 30"/>
+              <path d="M 55 20 Q 70 23 80 30"/>
+              <path d="M 55 33 Q 38 35 26 42"/>
+              <path d="M 55 33 Q 72 35 84 42"/>
+              <path d="M 55 46 Q 40 48 32 54"/>
+              <path d="M 55 46 Q 70 48 78 54"/>
+            </g>
+            <!-- lynx spider on leaf - pointed abdomen, spiny legs -->
+            <path d="M 50 38 L 60 38 L 57 52 Z" fill="#9a4a28"/>
+            <ellipse cx="47" cy="36" rx="3" ry="2.3" fill="#9a4a28"/>
+            <g stroke="#9a4a28" stroke-width="0.6" fill="none" stroke-linecap="round">
+              <path d="M 45 34 L 38 29"/>
+              <path d="M 45 38 L 37 40"/>
+              <path d="M 50 44 L 46 52"/>
+              <path d="M 60 44 L 64 52"/>
+              <path d="M 61 39 L 69 35"/>
+              <path d="M 60 35 L 69 29"/>
+            </g>
+            <!-- spines on legs (diagnostic) -->
+            <g stroke="#9a4a28" stroke-width="0.5">
+              <line x1="42" y1="32" x2="40" y2="30"/>
+              <line x1="41" y1="39" x2="39" y2="41"/>
+              <line x1="48" y1="48" x2="46" y2="50"/>
+              <line x1="62" y1="48" x2="64" y2="50"/>
+              <line x1="65" y1="37" x2="67" y2="36"/>
+              <line x1="65" y1="32" x2="67" y2="31"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Foliage Hunter</div>
+      </div>
+      <div class="family-right">
+        <h4>Oxyopidae</h4>
+        <p class="common">Lynx Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Slender green or pale spider on foliage with obvious black spines sticking out from the legs. Six eyes in a hexagon on the front of the head. Leaps after prey like a small jumper.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>8–18 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active daytime hunter on plants; leaps on prey. No snare web.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Foliage, chaparral, gardens. Often bright green (<a class="sci-link" href="https://www.inaturalist.org/taxa/84120" target="_blank" rel="noopener"><em>Peucetia</em></a>) on leaves.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Abdomen tapered to a point; legs with prominent black spines set at angles.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/126777" target="_blank" rel="noopener"><em>Peucetia viridans</em></a> <span>— Green lynx, striking translucent green with red eyespots</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/209807" target="_blank" rel="noopener"><em>Oxyopes scalaris</em></a> <span>— Western lynx, smaller, brown and cream striping</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/11_oxyopidae.png" alt="oxyopidae plate">
+          <figcaption class="plate-caption">Plate 11 — Oxyopidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/83843" target="_blank" rel="noopener">iNaturalist · Oxyopidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 12. DYSDERIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 12</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <ellipse cx="60" cy="50" rx="22" ry="12" fill="none" stroke="#6a5f50" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <circle cx="60" cy="40" r="3" fill="#1f1a13"/>
+          <circle cx="46" cy="48" r="3" fill="#1f1a13"/>
+          <circle cx="74" cy="48" r="3" fill="#1f1a13"/>
+          <circle cx="60" cy="60" r="3" fill="#1f1a13"/>
+          <circle cx="50" cy="56" r="3" fill="#1f1a13"/>
+          <circle cx="70" cy="56" r="3" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">6 eyes in tight oval</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground -->
+            <line x1="10" y1="60" x2="100" y2="60" stroke="#3c342a" stroke-width="1"/>
+            <!-- sow bug (isopod) - segmented oval -->
+            <ellipse cx="30" cy="52" rx="14" ry="6" fill="#6a5f50" stroke="#3c342a" stroke-width="0.6"/>
+            <!-- segments -->
+            <g stroke="#3c342a" stroke-width="0.5" fill="none">
+              <path d="M 22 47 L 23 57"/>
+              <path d="M 27 46 L 27 58"/>
+              <path d="M 31 46 L 31 58"/>
+              <path d="M 35 46 L 35 58"/>
+              <path d="M 39 47 L 38 57"/>
+            </g>
+            <!-- antennae -->
+            <g stroke="#3c342a" stroke-width="0.5" stroke-linecap="round">
+              <path d="M 18 49 L 12 46"/>
+              <path d="M 18 54 L 12 57"/>
+            </g>
+            <!-- tiny legs -->
+            <g stroke="#3c342a" stroke-width="0.4">
+              <line x1="24" y1="58" x2="24" y2="61"/>
+              <line x1="28" y1="58" x2="28" y2="61"/>
+              <line x1="32" y1="58" x2="32" y2="61"/>
+              <line x1="36" y1="58" x2="36" y2="61"/>
+            </g>
+            <!-- spider approaching with huge forward fangs -->
+            <ellipse cx="78" cy="50" rx="8" ry="4.5" fill="#7a3619"/>
+            <circle cx="70" cy="49" r="3" fill="#7a3619"/>
+            <!-- enormous curved fangs -->
+            <path d="M 68 48 L 58 44" stroke="#1f1a13" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M 68 50 L 58 54" stroke="#1f1a13" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <!-- spider legs -->
+            <g stroke="#7a3619" stroke-width="0.7" fill="none" stroke-linecap="round">
+              <path d="M 72 46 L 70 40"/>
+              <path d="M 76 45 L 77 39"/>
+              <path d="M 82 46 L 88 42"/>
+              <path d="M 74 53 L 72 58"/>
+              <path d="M 80 54 L 82 58"/>
+              <path d="M 84 52 L 92 56"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Isopod Specialist</div>
+      </div>
+      <div class="family-right">
+        <h4>Dysderidae</h4>
+        <p class="common">Sow Bug Killer · Woodlouse Spider</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Striking: dark red-orange front body and legs, pale pink-gray abdomen, six eyes in a tight oval, fangs that project forward like curved tusks. Hunts sow bugs specifically. Found under bricks and flowerpots.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>9–15 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Hunts on the ground at night. Enlarged fangs pierce sow bug armor. Can bite defensively, but the bite is not serious.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Damp gardens, under stones, compost, wood. European introduction, widespread in CA.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Two-toned — rust front, pale back. No web (except for small silk resting sac).</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/1454862" target="_blank" rel="noopener"><em>Dysdera crocata</em></a> <span>— Only species typically seen; introduced, cosmopolitan</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/12_dysderidae.png" alt="dysderidae plate">
+          <figcaption class="plate-caption">Plate 12 — Dysderidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/69200" target="_blank" rel="noopener">iNaturalist · Dysderidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 13. GNAPHOSIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 13</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="38" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="52" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="68" cy="38" r="3" fill="#1f1a13"/>
+          <circle cx="82" cy="38" r="3" fill="#1f1a13"/>
+          <!-- PME flattened/oval and silvery -->
+          <ellipse cx="50" cy="56" rx="4.5" ry="3" fill="#8a7f6f"/>
+          <ellipse cx="70" cy="56" rx="4.5" ry="3" fill="#8a7f6f"/>
+          <circle cx="36" cy="56" r="3" fill="#1f1a13"/>
+          <circle cx="84" cy="56" r="3" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">PME oval & silvery</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground -->
+            <line x1="8" y1="60" x2="102" y2="60" stroke="#3c342a" stroke-width="1"/>
+            <!-- rock/stone overhang -->
+            <path d="M 25 18 Q 22 14 32 12 Q 60 8 82 16 Q 95 24 88 32 L 28 32 Q 18 28 25 18 Z" fill="#3c342a" opacity="0.28" stroke="#3c342a" stroke-width="1"/>
+            <!-- silk hideaway under rock -->
+            <ellipse cx="55" cy="46" rx="20" ry="6" fill="#b8893a" opacity="0.4" stroke="#6a5f50" stroke-width="0.6" stroke-dasharray="2,1.5"/>
+            <!-- silk strands attaching -->
+            <g stroke="#6a5f50" stroke-width="0.4" stroke-dasharray="1,1.5">
+              <line x1="38" y1="43" x2="35" y2="33"/>
+              <line x1="48" y1="41" x2="46" y2="32"/>
+              <line x1="62" y1="41" x2="63" y2="32"/>
+              <line x1="72" y1="43" x2="76" y2="34"/>
+              <line x1="40" y1="50" x2="36" y2="58"/>
+              <line x1="70" y1="50" x2="74" y2="58"/>
+            </g>
+            <!-- spider inside sac (silhouette hint) -->
+            <ellipse cx="55" cy="46" rx="5" ry="2.3" fill="#1f1a13"/>
+            <circle cx="49" cy="46" r="1.8" fill="#1f1a13"/>
+            <!-- cylindrical silk spinners poking out -->
+            <rect x="60" y="45" width="5" height="1.3" rx="0.6" fill="#1f1a13"/>
+            <rect x="60" y="46.8" width="5" height="1.3" rx="0.6" fill="#1f1a13"/>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Silk Retreat</div>
+      </div>
+      <div class="family-right">
+        <h4>Gnaphosidae</h4>
+        <p class="common">Ground Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Fast-moving, flattened, often uniformly dark ground spider. Look for distinctly cylindrical, wide-spaced silk spinners sticking out the back end — visible even without magnification. Back middle eyes often flattened, oval, or silvery.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>3–15 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active at night. Silk retreat sac under rocks or bark.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Ground, under rocks, logs, leaf litter. Sometimes enter homes.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Elongated. Front body oval, abdomen often a single matte color.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/221218" target="_blank" rel="noopener"><em>Herpyllus propinquus</em></a> <span>— Western parson spider, dark with pale top-side stripe</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153611" target="_blank" rel="noopener"><em>Drassyllus</em></a> spp. <span>— Small, black, leaf-litter dwellers</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153636" target="_blank" rel="noopener"><em>Zelotes</em></a> spp. <span>— Glossy black, very fast</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/13_gnaphosidae.png" alt="gnaphosidae plate">
+          <figcaption class="plate-caption">Plate 13 — Gnaphosidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/50168" target="_blank" rel="noopener">iNaturalist · Gnaphosidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 14. LINYPHIIDAE ========== -->
+    <article class="family">
+      <div class="family-left">
+        <div class="number">Family 14</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="40" cy="40" r="2.8" fill="#1f1a13"/>
+          <circle cx="52" cy="40" r="2.8" fill="#1f1a13"/>
+          <circle cx="68" cy="40" r="2.8" fill="#1f1a13"/>
+          <circle cx="80" cy="40" r="2.8" fill="#1f1a13"/>
+          <circle cx="40" cy="56" r="2.8" fill="#1f1a13"/>
+          <circle cx="52" cy="56" r="2.8" fill="#1f1a13"/>
+          <circle cx="68" cy="56" r="2.8" fill="#1f1a13"/>
+          <circle cx="80" cy="56" r="2.8" fill="#1f1a13"/>
+        </svg>
+        <div class="eye-caption">8 small equal eyes</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- vegetation base (grass/shrub) -->
+            <g stroke="#556b2f" stroke-width="1" fill="none" stroke-linecap="round">
+              <path d="M 15 62 L 20 50"/>
+              <path d="M 25 62 L 28 48"/>
+              <path d="M 40 62 L 42 45"/>
+              <path d="M 55 62 L 56 43"/>
+              <path d="M 70 62 L 68 47"/>
+              <path d="M 85 62 L 82 50"/>
+              <path d="M 95 62 L 93 52"/>
+            </g>
+            <!-- horizontal sheet (slightly domed) -->
+            <path d="M 15 40 Q 55 30 95 40" fill="none" stroke="#3c342a" stroke-width="1.2"/>
+            <!-- texture on sheet -->
+            <g stroke="#6a5f50" stroke-width="0.3" fill="none">
+              <path d="M 25 39 Q 55 33 85 39"/>
+              <path d="M 30 41 Q 55 36 80 41"/>
+            </g>
+            <!-- knockdown threads above sheet -->
+            <g stroke="#6a5f50" stroke-width="0.5" stroke-dasharray="1,2">
+              <line x1="22" y1="8" x2="22" y2="38"/>
+              <line x1="32" y1="8" x2="32" y2="35"/>
+              <line x1="42" y1="8" x2="42" y2="33"/>
+              <line x1="52" y1="8" x2="52" y2="31"/>
+              <line x1="62" y1="8" x2="62" y2="32"/>
+              <line x1="72" y1="8" x2="72" y2="34"/>
+              <line x1="82" y1="8" x2="82" y2="37"/>
+              <line x1="92" y1="8" x2="92" y2="39"/>
+            </g>
+            <!-- tiny spider hanging below sheet -->
+            <circle cx="55" cy="37" r="2" fill="#9a4a28"/>
+            <g stroke="#9a4a28" stroke-width="0.3" stroke-linecap="round">
+              <line x1="53" y1="37" x2="48" y2="41"/>
+              <line x1="54" y1="38" x2="50" y2="44"/>
+              <line x1="57" y1="37" x2="62" y2="41"/>
+              <line x1="56" y1="38" x2="60" y2="44"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Sheet + Knockdown</div>
+      </div>
+      <div class="family-right">
+        <h4>Linyphiidae</h4>
+        <p class="common">Sheet Weavers · Money Spiders · Dwarf Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Very small spider (often 2–3 mm) hanging upside down beneath a horizontal or domed sheet web strung in low vegetation. Morning dew in a lawn reveals dozens of these webs at once.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>1–7 mm body. Most are under 3 mm.</dd>
+          </div>
+          <div class="attr">
+            <dt>Web Type</dt><dd>Horizontal sheet with tangled "knock-down" threads above. Prey fall onto sheet from flight lines.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>Low vegetation, grass, mulch, shrubs. Dewy lawns in fall show them best.</dd>
+          </div>
+          <div class="attr">
+            <dt>Body</dt><dd>Often dark with faint patterns. Many species ride silk threads on wind (<a class="support-link" href="https://en.wikipedia.org/wiki/Ballooning_(spider)" target="_blank" rel="noopener">ballooning</a>).</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Genera</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/209814" target="_blank" rel="noopener"><em>Neriene litigiosa</em></a> <span>— Sierra Dome, huge conspicuous dome webs in shrubs</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/143214" target="_blank" rel="noopener"><em>Frontinella</em></a> <span>— Bowl and doily, two-tier web architecture</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/153672" target="_blank" rel="noopener"><em>Erigone</em></a> and relatives <span>— Tiny, often ballooning, ubiquitous</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/14_linyphiidae.png" alt="linyphiidae plate">
+          <figcaption class="plate-caption">Plate 14 — Linyphiidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/67599" target="_blank" rel="noopener">iNaturalist · Linyphiidae</a></div>
+      </div>
+    </article>
+
+
+    <!-- ========== 15. SICARIIDAE ========== -->
+    <article class="family medical">
+      <div class="family-left">
+        <div class="number">Family 15</div>
+        <svg class="eye-drawing" width="120" height="90" viewBox="0 0 120 90">
+          <circle cx="54" cy="36" r="3.5" fill="#1f1a13"/>
+          <circle cx="66" cy="36" r="3.5" fill="#1f1a13"/>
+          <circle cx="36" cy="52" r="3.5" fill="#1f1a13"/>
+          <circle cx="48" cy="52" r="3.5" fill="#1f1a13"/>
+          <circle cx="72" cy="52" r="3.5" fill="#1f1a13"/>
+          <circle cx="84" cy="52" r="3.5" fill="#1f1a13"/>
+          <line x1="54" y1="36" x2="66" y2="36" stroke="#9a4a28" stroke-width="1" opacity="0.6"/>
+          <line x1="36" y1="52" x2="48" y2="52" stroke="#9a4a28" stroke-width="1" opacity="0.6"/>
+          <line x1="72" y1="52" x2="84" y2="52" stroke="#9a4a28" stroke-width="1" opacity="0.6"/>
+        </svg>
+        <div class="eye-caption">6 eyes in 3 pairs</div>
+        <div class="silhouette">
+          <svg width="110" height="70" viewBox="0 0 110 70">
+            <!-- ground -->
+            <line x1="8" y1="60" x2="102" y2="60" stroke="#3c342a" stroke-width="1"/>
+            <!-- left rock / crevice wall -->
+            <path d="M 20 60 L 26 32 L 38 30 L 44 60 Z" fill="#3c342a" opacity="0.2" stroke="#3c342a" stroke-width="0.9"/>
+            <!-- right rock / crevice wall -->
+            <path d="M 68 60 L 72 34 L 84 30 L 92 60 Z" fill="#3c342a" opacity="0.2" stroke="#3c342a" stroke-width="0.9"/>
+            <!-- irregular silk mat filling the crevice floor -->
+            <g stroke="#6a5f50" stroke-width="0.5" fill="none">
+              <path d="M 40 48 Q 55 45 72 48"/>
+              <path d="M 43 52 Q 58 50 70 51"/>
+              <path d="M 42 46 L 72 46"/>
+              <line x1="42" y1="49" x2="71" y2="52"/>
+              <line x1="48" y1="48" x2="66" y2="46"/>
+              <line x1="46" y1="51" x2="69" y2="49"/>
+              <line x1="44" y1="47" x2="68" y2="51"/>
+            </g>
+            <!-- flat spider on mat -->
+            <ellipse cx="56" cy="49" rx="8" ry="3" fill="#7a3619"/>
+            <circle cx="48" cy="49" r="2.3" fill="#3c342a"/>
+            <!-- violin suggestion -->
+            <path d="M 47 48 Q 49 50 51 49 L 51 51 L 48 51 Z" fill="#1f1a13" opacity="0.6"/>
+            <!-- legs spread flat and thin -->
+            <g stroke="#7a3619" stroke-width="0.7" fill="none" stroke-linecap="round">
+              <path d="M 46 47 L 38 44"/>
+              <path d="M 46 51 L 38 53"/>
+              <path d="M 56 46 L 53 41"/>
+              <path d="M 58 46 L 62 41"/>
+              <path d="M 63 48 L 70 44"/>
+              <path d="M 63 51 L 70 53"/>
+            </g>
+          </svg>
+        </div>
+        <div class="silhouette-caption">Silk Mat · Crevice</div>
+      </div>
+      <div class="family-right">
+        <h4>Sicariidae <span class="medical-flag">Medically Significant</span></h4>
+        <p class="common">Recluse Spiders</p>
+        <div class="tell">
+          <strong>Quick ID Tell</strong>
+          Drab tan, flattened body, long thin legs — but the diagnostic is six eyes arranged in three pairs (not eight). A dark violin shape may sit on the front body, pointing backward. <em>Essential caveat: the <a class="support-link" href="https://spiders.ucr.edu/" target="_blank" rel="noopener">brown recluse</a></em> (L. reclusa) <em>does not live in California.</em> CA has native desert recluses, but they are rare and desert-restricted.
+        </div>
+        <dl class="attrs">
+          <div class="attr">
+            <dt>Size</dt><dd>6–12 mm body.</dd>
+          </div>
+          <div class="attr">
+            <dt>Hunting Style</dt><dd>Active at night. Retreats to irregular silk mat by day.</dd>
+          </div>
+          <div class="attr">
+            <dt>Habitat</dt><dd>In CA, desert shelters: rocks, crevices, abandoned burrows. Not in Bay Area homes.</dd>
+          </div>
+          <div class="attr">
+            <dt>Reputation</dt><dd><a class="support-link" href="https://spiders.ucr.edu/" target="_blank" rel="noopener">Overdiagnosed</a>. Nearly all "recluse bites" in CA are misidentified: Staphylococcus infections, other spiders, or unknown causes.</dd>
+          </div>
+        </dl>
+        <div class="species-list">
+          <h5>Top California Species</h5>
+          <ul>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/50182" target="_blank" rel="noopener"><em>Loxosceles deserta</em></a> <span>— Desert recluse, Mojave/Colorado Desert only</span></li>
+            <li><a class="sci-link" href="https://www.inaturalist.org/taxa/224147" target="_blank" rel="noopener"><em>Loxosceles laeta</em></a> <span>— Chilean recluse, localized LA-area populations, medically serious</span></li>
+          </ul>
+        </div>
+        <figure class="plate">
+          <img src="plates/15_sicariidae.png" alt="sicariidae plate">
+          <figcaption class="plate-caption">Plate 15 — Sicariidae</figcaption>
+        </figure>
+        <div class="photoref">Reference photos: <a href="https://www.inaturalist.org/taxa/48140" target="_blank" rel="noopener">iNaturalist · Sicariidae</a></div>
+      </div>
+    </article>
+
+  </div>
+
+
+  <!-- =========================================================
+       CONFUSION MATRIX
+       ========================================================= -->
+  <div class="section-head">
+    <h3>Confusion Matrix</h3>
+    <span class="sect-num">§ The Pairs That Fool Everyone</span>
+  </div>
+
+  <div class="confusion-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Why the confusion</th>
+          <th>Diagnostic Tell</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>Calisoga vs. Aphonopelma<br>(Nemesiidae vs. Theraphosidae)</td>
+          <td>Both are mygalomorphs with tight eye clusters and burrow habits. Calisoga is the "tarantula" almost everyone reports in the Bay Area.</td>
+          <td class="verdict">Size + hair. True tarantulas exceed 40 mm body with uniformly dense "pelt" hair; Calisoga rarely exceeds 30 mm and is sparsely haired with shiny chitin showing.</td>
+        </tr>
+
+        <tr>
+          <td>Steatoda grossa vs. Latrodectus hesperus<br>(false widow vs. black widow)</td>
+          <td>Both glossy, globose, hang in messy webs in the same habitats. Both bite.</td>
+          <td class="verdict">Underside mark. Mature female <em>L. hesperus</em> has a bright red hourglass underneath. <em>S. grossa</em> has no hourglass; purplish-brown body often with pale top-side markings; red is absent.</td>
+        </tr>
+
+        <tr>
+          <td>Zoropsis spinimana vs. wolf spider<br>(Zoropsidae vs. Lycosidae)</td>
+          <td>Both brown, striped, ground-runner body plan. Both found indoors in fall.</td>
+          <td class="verdict">Eye pattern. Wolf spiders have two huge posterior median eyes dominating the face; Zoropsis has eight small, roughly equal eyes. Also, wolves prefer outdoors and leaf litter; Zoropsis owns your walls.</td>
+        </tr>
+
+        <tr>
+          <td>Pholcidae vs. Opiliones<br>(cellar spider vs. harvestman / "daddy long-legs")</td>
+          <td>Both called "daddy long-legs." Long thin legs, small body.</td>
+          <td class="verdict">Body segments. Opiliones have one fused oval body segment (no waist); Pholcidae have the classic two-segment spider body (front body + abdomen separated by a narrow pedicel). Pholcidae build webs; Opiliones never do.</td>
+        </tr>
+
+        <tr>
+          <td>Lycosidae vs. Pisauridae<br>(wolf vs. nursery-web)</td>
+          <td>Both large, outdoor, fast ground-runners with striped bodies. Less of an issue in CA (Pisauridae sparse) but worth knowing for Phase 2.</td>
+          <td class="verdict">Egg sac carry. Wolf spider females carry egg sac attached to silk spinners (dragged behind); nursery-web females carry it in their jaws (held under body).</td>
+        </tr>
+
+        <tr>
+          <td>Gnaphosidae vs. Clubionidae / Miturgidae<br>(ground spiders vs. sac spiders)</td>
+          <td>Both long, hunting (no web), found in similar places. Sac spiders (<a class="sci-link" href="https://www.inaturalist.org/taxa/61868" target="_blank" rel="noopener"><em>Cheiracanthium</em></a>) are common house spiders.</td>
+          <td class="verdict">Spinnerets and PME. Gnaphosidae have cylindrical, widely spaced silk spinners protruding noticeably; their PME are often flattened or silvery. Sac spiders have short conical silk spinners and uniformly round dark eyes.</td>
+        </tr>
+
+        <tr>
+          <td>Loxosceles vs. any brown hunter<br>(recluse false alarms)</td>
+          <td>Any brown spider of moderate size gets called "recluse." Essentially every non-Loxosceles brown spider is misidentified this way at some point.</td>
+          <td class="verdict">Count eyes. Six eyes in three pairs = recluse. Eight eyes = not a recluse, no matter what the violin mark looks like. Also, recluses do not live in coastal CA.</td>
+        </tr>
+
+        <tr>
+          <td>Salticidae vs. Thomisidae<br>(jumper vs. crab)</td>
+          <td>Both small, daytime, sit on flowers and foliage, don't build webs.</td>
+          <td class="verdict">Posture and eyes. Jumpers have two huge anterior median eyes and short legs held close. Crab spiders have all small eyes (sometimes on turrets) and the front two leg pairs much longer and held sideways.</td>
+        </tr>
+
+        <tr>
+          <td>Araneidae vs. Tetragnathidae<br>(orb weavers vs. long-jawed orb weavers)</td>
+          <td>Both build orb webs.</td>
+          <td class="verdict">Body shape and web orientation. Araneidae have bulky, often humped abdomens and vertical webs. Tetragnathidae are long (sometimes resembling sticks) with horizontal webs, often near water; their fangs are enlarged.</td>
+        </tr>
+
+        <tr>
+          <td>Pholcidae vs. Theridiidae<br>(cellar spider vs. cobweb/widow in dim light)</td>
+          <td>Both hang inverted in irregular webs in dark corners.</td>
+          <td class="verdict">Proportion. Pholcidae have pencil-thin legs several times longer than a tiny body. Theridiidae have moderately long legs on a globose body where the abdomen is the dominant feature.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- =========================================================
+       FIELD-USE TIPS / CLOSING
+       ========================================================= -->
+  <div class="section-head">
+    <h3>Field Technique</h3>
+    <span class="sect-num">§ How to Read a Spider</span>
+  </div>
+
+  <section class="intro" style="max-width: 760px;">
+    <p><strong style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;">01 · THE TWO-SECOND SCAN</strong><br>Before anything else: web or no web? If web, what shape? Orb, cobweb, funnel, sheet, none? That alone cuts the family list in half.</p>
+
+    <p><strong style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;">02 · EYES BEFORE COLOR</strong><br>Colors vary; eye geometry doesn't. A handheld macro lens on a phone brings eye arrangement within easy reach in most light. Count rows, note relative sizes, look for tight clusters or obvious pairs.</p>
+
+    <p><strong style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;">03 · PROPORTIONS OVER MARKINGS</strong><br>Leg length relative to body, abdomen size relative to front body, whether legs are held tucked, splayed, or crab-wise. These stay constant across individuals; markings vary wildly.</p>
+
+    <p><strong style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;">04 · CONTEXT IS A CLUE</strong><br>Where you found it narrows the list before you look at the spider. Inside on a wall vs. garden vs. under a rock vs. in a dewy lawn all implicate different families.</p>
+  </section>
+
+
+  <!-- =========================================================
+       COLOPHON
+       ========================================================= -->
+  
+  <!-- Getting Help With ID -->
+  <div class="section-head">
+    <h3>Getting Help With ID</h3>
+    <span class="sect-num">§ When you're not sure</span>
+  </div>
+  <section class="intro" style="max-width: 760px;">
+    <p><strong class="help-label">WHERE TO POST</strong><br><a class="support-link" href="https://www.inaturalist.org/" target="_blank" rel="noopener">iNaturalist</a> is the default — uncertain IDs get corrected by specialists within hours, and every submission feeds the same observation dataset this guide was built on. For harder calls, <a class="support-link" href="https://bugguide.net/" target="_blank" rel="noopener">BugGuide</a>'s per-family forums bring in specialists who focus on one group; <a class="support-link" href="https://www.reddit.com/r/spiders/" target="_blank" rel="noopener">r/spiders</a> answers casual photos quickly; and <a class="support-link" href="https://arachnoboards.com/" target="_blank" rel="noopener">Arachnoboards</a> is the right place for mygalomorphs — tarantulas, Calisoga, and trapdoor spiders.</p>
+    <p><strong class="help-label">WHAT TO PHOTOGRAPH</strong><br>Three shots settle most IDs: a top-down view of the whole animal, a face-on macro of the eye cluster, and a size reference (fingernail or coin in frame). Add a view from underneath if you suspect a widow — the red hourglass is the diagnostic.</p>
+    <p><strong class="help-label">WHAT TO NOTE</strong><br>Where you found it (indoors or out, elevation, specific habitat), time of day, any web and its shape, and whether the spider was actively hunting, at rest, or in a silk retreat. These details often settle a species when the photo can't.</p>
+  </section>
+</div>
+
+</body>
+</html>

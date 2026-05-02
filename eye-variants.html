@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eye diagram variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#f2ebdc; --ink:#1f1a13; --rule:#c8b992; --rust:#9a4a28;
+    --display:"Fraunces",serif; --mono:"JetBrains Mono",monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--display); }
+  .frame { max-width: 1180px; margin: 0 auto; padding: 40px 32px 80px; }
+  h1 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 40px; margin: 0 0 6px; }
+  .sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--rust); margin-bottom: 30px; }
+  .row {
+    display: grid; grid-template-columns: 140px 1fr 1fr 1fr; gap: 14px;
+    align-items: center; padding: 14px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .row-label {
+    font-family: var(--display); font-style: italic; font-size: 20px;
+    padding-right: 14px; border-right: 1px solid var(--rule); height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .row-label .fam {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--rust); margin-top: 4px;
+  }
+  .variant {
+    position: relative; background: #fff; border: 1px solid var(--rule);
+    border-radius: 3px; overflow: hidden;
+  }
+  .variant img { display: block; width: 100%; height: auto; }
+  .variant .tag {
+    position: absolute; top: 6px; left: 6px;
+    background: rgba(31,26,19,0.85); color: #f2ebdc;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+    padding: 3px 7px; border-radius: 2px;
+  }
+  .variant.live { border-color: var(--rust); border-width: 2px; }
+  .variant.live .tag { background: var(--rust); }
+  .hint {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+    color: var(--ink); margin-bottom: 18px; opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <h1>Eye diagram variants</h1>
+  <div class="sub">3 Gemini variants per family · rust border = currently live</div>
+  <div class="hint">Click any variant to open full-size.</div>
+
+  <div class="row">
+    <div class="row-label">Jumpers<span class="fam">Salticidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/salticidae.png" target="_blank"><img src="plates/eyes_diagram/salticidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/01_salticidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/01_salticidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/01_salticidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/01_salticidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Wolves<span class="fam">Lycosidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/lycosidae.png" target="_blank"><img src="plates/eyes_diagram/lycosidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/02_lycosidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/02_lycosidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/02_lycosidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/02_lycosidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Mygalomorphs<span class="fam">Theraphosidae / Nemesiidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/mygalomorphs.png" target="_blank"><img src="plates/eyes_diagram/mygalomorphs.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/03_mygalomorphs.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/03_mygalomorphs.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/03_mygalomorphs.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/03_mygalomorphs.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Lynx<span class="fam">Oxyopidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/oxyopidae.png" target="_blank"><img src="plates/eyes_diagram/oxyopidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/04_oxyopidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/04_oxyopidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/04_oxyopidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/04_oxyopidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Sow-bug killer<span class="fam">Dysderidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/dysderidae.png" target="_blank"><img src="plates/eyes_diagram/dysderidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/05_dysderidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/05_dysderidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/05_dysderidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/05_dysderidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Recluse<span class="fam">Sicariidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/sicariidae.png" target="_blank"><img src="plates/eyes_diagram/sicariidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/06_sicariidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/06_sicariidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/06_sicariidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/06_sicariidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Orb-weavers<span class="fam">Araneidae</span></div>
+    <a class="variant live" href="plates/eyes_diagram/araneidae.png" target="_blank"><img src="plates/eyes_diagram/araneidae.png"><span class="tag">live · v1</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/07_araneidae.variant2.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/07_araneidae.variant2.png"><span class="tag">v2</span></a>
+    <a class="variant" href="../gists/comfyui/outputs/eye_diagrams/07_araneidae.variant3.png" target="_blank"><img src="../gists/comfyui/outputs/eye_diagrams/07_araneidae.variant3.png"><span class="tag">v3</span></a>
+  </div>
+
+  <p style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; color: var(--ink); opacity: 0.6; margin-top: 30px;">Tell me which variant number to make live for each family, or say "reroll X" and I'll regenerate with a stronger prompt.</p>
+</div>
+</body>
+</html>
